@@ -2,7 +2,7 @@
 
 require __DIR__ . '/_common.php';
 
-use Modules\Site\Models\Menu;
+use BasicApp\Site\Models\Menu;
 
 unset($adminConfig->breadcrumbs[count($adminConfig->breadcrumbs) - 1]['url']);
 

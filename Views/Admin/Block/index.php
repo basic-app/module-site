@@ -1,6 +1,6 @@
 <?php
 
-use Modules\Site\Models\Block;
+use BasicApp\Site\Models\Block;
 
 require __DIR__ . '/_common.php';
 

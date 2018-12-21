@@ -1,6 +1,6 @@
 <?php
 
-use Modules\Site\Models\Menu;
+use BasicApp\Site\Models\Menu;
 
 $parent = (new Menu)->find((int) $parentId);
 

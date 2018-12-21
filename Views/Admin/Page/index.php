@@ -1,5 +1,7 @@
 <?php
 
+use BasicApp\Site\Models\Page;
+
 require __DIR__ . '/_common.php';
 
 unset($adminConfig->breadcrumbs[count($adminConfig->breadcrumbs) - 1]['url']);
@@ -12,8 +14,6 @@ $adminConfig->actionMenu[] = [
 		'class' => 'btn btn-success'
 	]
 ];
-
-use Modules\Site\Models\Page;
 
 echo admin_theme_view('_table/begin');
 

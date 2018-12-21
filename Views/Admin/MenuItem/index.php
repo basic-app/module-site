@@ -1,8 +1,8 @@
 <?php
 
-require __DIR__ . '/_common.php';
+use BasicApp\Site\Models\MenuItem;
 
-use Modules\Site\Models\MenuItem;
+require __DIR__ . '/_common.php';
 
 unset($adminConfig->breadcrumbs[count($adminConfig->breadcrumbs) - 1]['url']);
 
