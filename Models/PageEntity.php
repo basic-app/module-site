@@ -28,18 +28,14 @@ class PageEntity extends \CodeIgniter\Entity
 
 	public function getTemplate()
 	{
-		$filename = APPPATH . '/Views/page/' . $this->page_url . '.php';
+		$filename = APPPATH . 'Views' . DIRECTORY_SEPARATOR . 'page' . DIRECTORY_SEPARATOR . $this->page_url . '.php';
 
 		if (is_file($filename))
 		{
-			$template = 'page/' . $this->page_url;
-		}
-		else
-		{
-			$template = 'page/_default';
+			return 'page/' . $this->page_url;
 		}
 
-		return $template;
+		return 'page/_default';
 	}
 
 }
