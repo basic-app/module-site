@@ -5,8 +5,10 @@ namespace BasicApp\Site\Controllers;
 use BasicApp\Site\Models\Page as PageModel;
 use CodeIgniter\Exceptions\PageNotFoundException;
 
-class Page extends \App\Components\PublicController
+class Page extends \BasicApp\Controller
 {
+
+	public $layout = 'layouts\main';
 
 	public function view($url = 'index')
 	{
@@ -23,7 +25,7 @@ class Page extends \App\Components\PublicController
 		}
 
 		return $this->render($page->template, [
-			'page' => $page,
+			'page' => $page
 		]);
 	}
 
