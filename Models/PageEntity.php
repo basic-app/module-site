@@ -28,9 +28,7 @@ class PageEntity extends \CodeIgniter\Entity
 
 	public function getTemplate()
 	{
-		$theme = config(\Config\Custom\Theme::class)->theme;
-
-		$filename = theme_view_file($theme, 'page/' . $this->page_url, true);
+		$filename = APPPATH . '/Views/page/' . $this->page_url . '.php';
 
 		if (is_file($filename))
 		{
