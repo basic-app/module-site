@@ -5,10 +5,8 @@ namespace BasicApp\Site\Controllers;
 use BasicApp\Site\Models\Page as PageModel;
 use CodeIgniter\Exceptions\PageNotFoundException;
 
-class Page extends \BasicApp\Controller
+class Page extends \BasicApp\PublicController
 {
-
-	public $layout = 'layouts\main';
 
 	public function view($url = 'index')
 	{
