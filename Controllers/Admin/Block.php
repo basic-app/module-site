@@ -2,7 +2,7 @@
 
 namespace BasicApp\Site\Controllers\Admin;
 
-class Block extends \App\Crud\AdminCrudController
+class Block extends \BasicApp\AdminCrudController
 {
 
 	protected $modelClass = \BasicApp\Site\Models\Block::class;
