@@ -2,8 +2,6 @@
 
 namespace BasicApp\Site\Models;
 
-use Exception;
-
 class PageEntity extends \BasicApp\Entity
 {
 

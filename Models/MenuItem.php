@@ -2,12 +2,8 @@
 
 namespace BasicApp\Site\Models;
 
-use App\Components\FieldLabels;
-
 class MenuItem extends \BasicApp\Model
 {
-
-	use FieldLabels;
 
     protected $table = 'menu_item';
 
