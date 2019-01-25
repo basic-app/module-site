@@ -7,13 +7,13 @@ use App\Html\FormSubmitButton;
 use App\Html\FormInput;
 
 echo FormInput::factory([
-	'label' => Menu::fieldLabel('menu_name'), 
+	'label' => $model->fieldLabel('menu_name'), 
 	'name' => 'menu_name',
 	'errors' => $errors
 ])->render($model->menu_name);
 
 echo FormInput::factory([
-	'label' => Menu::fieldLabel('menu_uid'), 
+	'label' => $model->fieldLabel('menu_uid'), 
 	'name' => 'menu_uid', 
 	'errors' => $errors
 ])->render($model->menu_uid);
