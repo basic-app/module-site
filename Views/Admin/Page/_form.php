@@ -1,6 +1,6 @@
 <?php
 
-use Modules\Site\Models\Page;
+use BasicApp\Site\Models\Page;
 
 use App\Html\FormErrors;
 use App\Html\FormSubmitButton;
