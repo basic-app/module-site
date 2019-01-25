@@ -26,16 +26,4 @@ class PageEntity extends \CodeIgniter\Entity
 		return $this->page_published ? t('attribute', 'Published') : t('attribute', 'Not Published');
 	}
 
-	public function getTemplate()
-	{
-		$filename = APPPATH . 'Views' . DIRECTORY_SEPARATOR . 'page' . DIRECTORY_SEPARATOR . $this->page_url . '.php';
-
-		if (is_file($filename))
-		{
-			return 'page/' . $this->page_url;
-		}
-
-		return 'page/_default';
-	}
-
 }
