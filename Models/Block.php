@@ -19,7 +19,7 @@ class Block extends \BasicApp\Model
 		'block_content' => 'trim|max_length[65535]'
 	];
 
-	protected $fieldLabels = [
+	protected static $fieldLabels = [
 		'block_id' => 'ID',
 		'block_uid' => 'UID',
 		'block_content' => 'Content',

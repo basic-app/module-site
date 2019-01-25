@@ -23,7 +23,7 @@ class Page extends \BasicApp\Model
 		'page_published' => 'in_list[0,1]'
 	];
 
-	protected $fieldLabels = [
+	protected static $fieldLabels = [
 		'page_id' => 'ID',
 		'page_url' => 'URL',
 		'page_name' => 'Name',

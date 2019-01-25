@@ -20,7 +20,7 @@ class MenuItem extends \BasicApp\Model
 		'item_sort' => 'trim'
 	];
 
-	protected $fieldLabels = [
+	protected static $fieldLabels = [
 		'item_name' => 'Name',
 		'item_url' => 'Url',
 		'item_sort' => 'Sort',
