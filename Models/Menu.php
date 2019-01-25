@@ -4,7 +4,7 @@ namespace BasicApp\Site\Models;
 
 use App\Components\FieldLabels;
 
-class Menu extends \CodeIgniter\Model
+class Menu extends \BasicApp\Model
 {
 
 	use FieldLabels;

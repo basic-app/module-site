@@ -4,7 +4,7 @@ namespace BasicApp\Site\Models;
 
 use Exception;
 
-class PageEntity extends \CodeIgniter\Entity
+class PageEntity extends \BasicApp\Entity
 {
 
 	protected $page_id;

@@ -4,7 +4,7 @@ namespace BasicApp\Site\Models;
 
 use App\Components\FieldLabels;
 
-class Page extends \App\Components\Model
+class Page extends \BasicApp\Model
 {
 
 	use FieldLabels;

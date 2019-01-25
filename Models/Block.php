@@ -5,7 +5,7 @@ namespace BasicApp\Site\Models;
 use App\Components\ModelGetTrait;
 use App\Components\FieldLabels;
 
-class Block extends \App\Components\Model
+class Block extends \BasicApp\Model
 {
 
 	use ModelGetTrait;

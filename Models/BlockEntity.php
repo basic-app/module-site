@@ -2,7 +2,7 @@
 
 namespace BasicApp\Site\Models;
 
-class BlockEntity extends \CodeIgniter\Entity
+class BlockEntity extends \BasicApp\Entity
 {
 
 	protected $block_id;

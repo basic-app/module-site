@@ -2,7 +2,7 @@
 
 namespace BasicApp\Site\Models;
 
-class MenuEntity extends \CodeIgniter\Entity
+class MenuEntity extends \BasicApp\Entity
 {
 
 	public $menu_id;
