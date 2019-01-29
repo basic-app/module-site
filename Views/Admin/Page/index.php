@@ -41,16 +41,20 @@ echo admin_theme_view('_table/begin');
         <td class="d-none d-sm-table-cell"><?= $row->page_name;?></td>
         <td class="d-none d-lg-table-cell"><?= $row->formattedPublished;?></td>
         <td style="width: 1%; padding-left: 10px;">
-        	<?= admin_theme_view('_widgets/button-update', [
-        		'url' => classic_url('admin/page/update' , ['id' => $row->page_id]),
-        		'label' => t('admin', 'Update')
-        	]);?>
+
+            <?= PHPTheme::widget('tableButtonUpdate', [
+                'url' => classic_url('admin/page/update' , ['id' => $row->page_id]),
+                'label' => t('admin', 'Update')
+            ]);?>
+
         </td>
         <td style="width: 1%; padding-left: 10px; padding-right: 20px;">
-        	<?= admin_theme_view('_widgets/button-delete', [
-        		'url' => classic_url('admin/page/delete', ['id' => $row->page_id]),
-        		'label' => t('admin', 'Delete')
-        	]);?>		
+        	
+            <?= PHPTheme::widget('tableButtonDelete', [
+                'url' => classic_url('admin/page/delete', ['id' => $row->page_id]),
+                'label' => t('admin', 'Delete')
+            ]);?>
+
         </td>
     </tr>
 

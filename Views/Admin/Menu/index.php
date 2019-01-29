@@ -47,19 +47,20 @@ echo admin_theme_view('_table/begin');
 
         <td style="width: 1%; padding-left: 10px; padding-right: 10px; text-align: center;">
 
-        	<?= admin_theme_view('_widgets/button-update', [
-        		'url' => classic_url('admin/menu/update', ['id' => $model->menu_id, 'returnUrl' => classic_uri_string()]),
-        		'label' => t('admin', 'Update')
-        	]);?>
+            <?= PHPTheme::widget('tableButtonUpdate', [
+                'url' => classic_url('admin/menu/update', ['id' => $model->menu_id, 'returnUrl' => classic_uri_string()]),
+                'label' => t('admin', 'Update')
+            ]);?>
 
         </td>
         <td style="width: 1%; padding-left: 20px; padding-right: 20px; text-align: center;">
 
-        	<?php
+            <?= PHPTheme::widget('tableButtonDelete', [
+                'url' => classic_url('admin/menu/delete', ['id' => $model->menu_id, 'returnUrl' => classic_uri_string()]),
+                'label' => t('admin', 'Delete')
+            ]);?>
 
-        	$delete_url = classic_url('admin/menu/delete', ['id' => $model->menu_id, 'returnUrl' => classic_uri_string()]);
-
-        	echo admin_theme_view('_widgets/button-delete', ['url' => $delete_url]);?></td>
+        </td>
     </tr>
 
 <?php endforeach;?>
