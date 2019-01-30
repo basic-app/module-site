@@ -8,9 +8,9 @@ $this->data['breadcrumbs'][] = ['label' => ['admin', 'Create']];
 
 <form method="POST" id="admin-block-create-form">
 
-	<?php echo admin_theme_view('_widgets/card', [
+	<?= PHPTheme::widget('card', [
 		'header' => $this->data['title'],
-		'content' => admin_theme_view('BasicApp\Site\Views\Admin\Block\_form', [
+		'content' => app_view('BasicApp\Site\Views\Admin\Block\_form', [
 			'model' => $model,
 			'errors' => $errors
 		])

@@ -7,9 +7,9 @@ $this->data['breadcrumbs'][] = ['label' => t('admin', 'Update')];
 ?>
 <form method="POST" id="admin-page-update-form">
 
-	<?php echo admin_theme_view('_widgets/card', [
+	<?= PHPTheme::widget('card', [
 		'header' => $this->data['title'],
-		'content' => admin_theme_view('BasicApp\Site\Views\Admin\Page\_form', [
+		'content' => app_view('BasicApp\Site\Views\Admin\Page\_form', [
 			'model' => $model,
 			'errors' => $errors
 		])
