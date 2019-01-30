@@ -6,7 +6,7 @@ require __DIR__ . '/_common.php';
 
 unset($adminConfig->breadcrumbs[count($adminConfig->breadcrumbs) - 1]['url']);
 
-$adminConfig->actionMenu[] = [
+$this->data['actionMenu'][] = [
 	'url' => classic_url('admin/block/create', ['returnUrl' => 'admin/block']), 
 	'label' => t('admin.menu', 'Add Block'), 
 	'icon' => 'plus',

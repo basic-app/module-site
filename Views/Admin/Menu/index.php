@@ -6,7 +6,7 @@ use BasicApp\Site\Models\Menu;
 
 unset($adminConfig->breadcrumbs[count($adminConfig->breadcrumbs) - 1]['url']);
 
-$adminConfig->actionMenu[] = [
+$this->data['actionMenu'][] = [
 	'url' => classic_url('admin/menu/create', [
 		'returnUrl' => classic_uri_string(),
 		'link_user_id' => $parentId
