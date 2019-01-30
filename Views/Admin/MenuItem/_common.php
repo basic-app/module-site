@@ -13,10 +13,7 @@ if (!$parent)
 
 $this->data['mainMenu']['menu']['active'] = true;
 
-$this->data['breadcrumbs'][] = [
-	'label' => $this->data['title'], 
-	'url' => ['/admin/menu']
-];
+$this->data['breadcrumbs'][] = ['label' => $this->data['title'], 'url' => site_url('/admin/menu')];
 
 $this->data['breadcrumbs'][] = [
 	'label' => $parent->menu_name, 
