@@ -8,13 +8,13 @@ use App\Html\FormInput;
 use App\Html\FormTextareaCode;
 
 echo FormInput::factory([
-	'label' => Block::fieldLabel('block_uid'), 
+	'label' => $model->fieldLabel('block_uid'), 
 	'name' => 'block_uid',
 	'errors' => $errors
 ])->render($model->block_uid);
 
 echo FormTextareaCode::factory([
-	'label' => Block::fieldLabel('block_content'), 
+	'label' => $model->fieldLabel('block_content'), 
 	'name' => 'block_content',
 	'errors' => $errors
 ])->render($model->block_content);

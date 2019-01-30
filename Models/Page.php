@@ -2,12 +2,8 @@
 
 namespace BasicApp\Site\Models;
 
-use App\Components\FieldLabels;
-
-class Page extends \App\Components\Model
+class Page extends \BasicApp\Model
 {
-
-	use FieldLabels;
 
 	protected $table = 'pages';
 
@@ -27,7 +23,7 @@ class Page extends \App\Components\Model
 		'page_published' => 'in_list[0,1]'
 	];
 
-	protected $fieldLabels = [
+	protected static $fieldLabels = [
 		'page_id' => 'ID',
 		'page_url' => 'URL',
 		'page_name' => 'Name',

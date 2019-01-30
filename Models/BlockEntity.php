@@ -2,8 +2,10 @@
 
 namespace BasicApp\Site\Models;
 
-class BlockEntity extends \CodeIgniter\Entity
+class BlockEntity extends \BasicApp\Entity
 {
+
+    protected $modelClass = Block::class;
 
 	protected $block_id;
 

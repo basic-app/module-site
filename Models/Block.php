@@ -2,14 +2,8 @@
 
 namespace BasicApp\Site\Models;
 
-use App\Components\ModelGetTrait;
-use App\Components\FieldLabels;
-
-class Block extends \App\Components\Model
+class Block extends \BasicApp\Model
 {
-
-	use ModelGetTrait;
-	use FieldLabels;
 
 	protected $table = 'blocks';
 
@@ -25,7 +19,7 @@ class Block extends \App\Components\Model
 		'block_content' => 'trim|max_length[65535]'
 	];
 
-	protected $fieldLabels = [
+	protected static $fieldLabels = [
 		'block_id' => 'ID',
 		'block_uid' => 'UID',
 		'block_content' => 'Content',

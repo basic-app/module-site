@@ -8,6 +8,8 @@ use CodeIgniter\Exceptions\PageNotFoundException;
 class Page extends \BasicApp\PublicController
 {
 
+    protected $viewPath = 'App\Views';
+
 	public function view($url = 'index')
 	{
 		$pageModel = new PageModel;
@@ -22,7 +24,23 @@ class Page extends \BasicApp\PublicController
 			throw new PageNotFoundException();
 		}
 
-		return $this->render($page->template, [
+        $template = 'page';
+
+        if ($page->page_url == 'index')
+        {
+            $template = 'index';
+        }
+        else
+        {
+            $filename = APPPATH . 'Views' . DIRECTORY_SEPARATOR . 'page' . DIRECTORY_SEPARATOR . $page->page_url . '.php';
+
+            if (is_file($filename))
+            {
+                $template = 'page/' . $page->page_url;
+            }
+        }
+
+		return $this->render($template, [
 			'page' => $page
 		]);
 	}

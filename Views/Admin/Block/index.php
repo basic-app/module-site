@@ -38,14 +38,20 @@ echo admin_theme_view('_table/begin');
         <td class="process"><?= $row->block_uid;?></td>
         <td style="width: 1%; padding-left: 10px;">
 
-        	<?= admin_theme_view('_widgets/button-update', [
-        		'url' => classic_url('admin/block/update', ['id' => $row->block_id]),
-        		'label' => t('admin', 'Update')
-        	]);?>
+            <?= PHPTheme::widget('tableButtonUpdate', [
+                'url' => classic_url('admin/block/update', ['id' => $row->block_id]),
+                'label' => t('admin', 'Update')
+            ]);?>
 
         </td>
-        <td style="width: 1%; padding-left: 10px; padding-right: 20px;"><?= admin_theme_view('_widgets/button-delete', [
-            'url' => classic_url('admin/block/delete', ['id' => $row->block_id])]);?></td>
+        <td style="width: 1%; padding-left: 10px; padding-right: 20px;">
+
+            <?= PHPTheme::widget('tableButtonDelete', [
+                'url' => classic_url('admin/block/delete', ['id' => $row->block_id]),
+                'label' => t('admin', 'Delete')
+            ]);?>
+                
+        </td>
     </tr>
 
 <?php endforeach;?>

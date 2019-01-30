@@ -2,7 +2,7 @@
 
 namespace BasicApp\Site\Controllers\Admin;
 
-class Page extends \App\Crud\AdminCrudController
+class Page extends \BasicApp\AdminCrudController
 {
 
 	protected $modelClass = \BasicApp\Site\Models\Page::class;

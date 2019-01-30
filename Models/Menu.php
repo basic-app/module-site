@@ -2,12 +2,8 @@
 
 namespace BasicApp\Site\Models;
 
-use App\Components\FieldLabels;
-
-class Menu extends \CodeIgniter\Model
+class Menu extends \BasicApp\Model
 {
-
-	use FieldLabels;
 
     protected $table = 'menu';
 
@@ -22,7 +18,7 @@ class Menu extends \CodeIgniter\Model
 		'menu_uid' => 'trim|required|max_length[255]|alpha_dash|is_unique[menu.menu_uid,menu_id,{menu_id}]'
 	];
 
-	protected $fieldLabels = [
+	protected static $fieldLabels = [
 		'menu_name' => 'Name',
 		'menu_uid' => 'UID',
 		'menu_id' => 'ID',

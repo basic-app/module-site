@@ -2,12 +2,8 @@
 
 namespace BasicApp\Site\Models;
 
-use App\Components\FieldLabels;
-
-class MenuItem extends \CodeIgniter\Model
+class MenuItem extends \BasicApp\Model
 {
-
-	use FieldLabels;
 
     protected $table = 'menu_item';
 
@@ -24,7 +20,7 @@ class MenuItem extends \CodeIgniter\Model
 		'item_sort' => 'trim'
 	];
 
-	protected $fieldLabels = [
+	protected static $fieldLabels = [
 		'item_name' => 'Name',
 		'item_url' => 'Url',
 		'item_sort' => 'Sort',
