@@ -2,7 +2,7 @@
 
 require __DIR__ . '/_common.php';
 
-$adminConfig->breadcrumbs[] = ['label' => t('admin', 'Create')];
+$this->data['breadcrumbs'][] = ['label' => t('admin', 'Create')];
 
 ?>
 <form  method="POST" id="admin-page-create-form">

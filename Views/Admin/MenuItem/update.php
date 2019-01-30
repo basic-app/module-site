@@ -2,7 +2,7 @@
 
 require __DIR__ . '/_common.php';
 
-$adminConfig->breadcrumbs[] = ['label' => ['admin', 'Update']];
+$this->data['breadcrumbs'][] = ['label' => ['admin', 'Update']];
 
 ?>
 <form method="POST">

@@ -4,7 +4,7 @@ use BasicApp\Site\Models\Block;
 
 require __DIR__ . '/_common.php';
 
-unset($adminConfig->breadcrumbs[count($adminConfig->breadcrumbs) - 1]['url']);
+unset($this->data['breadcrumbs'][count($this->data['breadcrumbs']) - 1]['url']);
 
 $this->data['actionMenu'][] = [
 	'url' => classic_url('admin/block/create', ['returnUrl' => 'admin/block']), 

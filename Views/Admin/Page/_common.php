@@ -1,11 +1,7 @@
 <?php
 
-$title = t('admin', 'Pages');
+$this->data['title'] = t('admin', 'Pages');
 
-$adminConfig = config(Config\Custom\Admin::class);
+$this->data['mainMenu']['pages']['active'] = true;
 
-$adminConfig->mainMenu['pages']['active'] = true;
-
-$adminConfig->breadcrumbs[] = ['label' => $title, 'url' => site_url('admin/page')];
-
-$this->data['title'] = $title;
+$this->data['breadcrumbs'][] = ['label' => $this->data['title'], 'url' => site_url('admin/page')];

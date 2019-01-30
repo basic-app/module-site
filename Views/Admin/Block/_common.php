@@ -2,10 +2,8 @@
 
 $title = t('admin.menu', 'Blocks');
 
-$adminConfig = config(Config\Custom\Admin::class);
+$this->data['mainMenu']['blocks']['active'] = true
 
-$adminConfig->mainMenu['blocks']['active'] = true;
-
-$adminConfig->breadcrumbs[] = ['label' => $title, 'url' => ['/admin/block']];
+$this->data['breadcrumbs'][] = ['label' => $title, 'url' => ['/admin/block']];
 
 $this->data['title'] = $title;
