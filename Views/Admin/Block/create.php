@@ -2,7 +2,7 @@
 
 require __DIR__ . '/_common.php';
 
-$this->data['breadcrumbs'][] = ['label' => ['admin', 'Create']];
+$this->data['breadcrumbs'][] = ['label' => t('admin', 'Create')];
 
 ?>
 

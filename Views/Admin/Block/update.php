@@ -2,7 +2,7 @@
 
 require __DIR__ . '/_common.php';
 
-$this->data['breadcrumbs'][] = ['label' => ['admin', 'Update']];
+$this->data['breadcrumbs'][] = ['label' => t('admin', 'Update')];
 
 ?>
 <form method="POST" id="admin-block-update-form">
