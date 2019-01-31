@@ -2,7 +2,7 @@
 
 namespace BasicApp\Site\Models;
 
-class MenuItem extends \BasicApp\Model
+class MenuItem extends \BasicApp\Core\Model
 {
 
     protected $table = 'menu_item';

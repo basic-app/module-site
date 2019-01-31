@@ -2,7 +2,7 @@
 
 namespace BasicApp\Site\Models;
 
-class MenuItemEntity extends \BasicApp\Entity
+class MenuItemEntity extends \BasicApp\Core\Entity
 {
 
     protected $modelClass = MenuItem::class;

@@ -2,7 +2,7 @@
 
 namespace BasicApp\Site\Models;
 
-class Page extends \BasicApp\Model
+class Page extends \BasicApp\Core\Model
 {
 
 	protected $table = 'pages';
