@@ -74,4 +74,9 @@ class PageModel extends \BasicApp\Core\Model
         return static::getEntity(['page_url' => $url], $create, $params);
     }
 
+    public static function pageSetMetaTags($page, $view)
+    {
+        $view->data['title'] = $page->name;
+    }
+
 }
