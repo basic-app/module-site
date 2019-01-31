@@ -30,9 +30,9 @@ Events::on('install', function()
 	$db = Database::connect();
 
 	$db->table('pages')->insert([
-		'page_url'       => 'index',
-		'page_name'      => 'Index',
-		'page_text'      => '<p>Index page text.</p>',
+		'page_url' => 'index',
+		'page_name' => 'Index',
+		'page_text' => '<p>Index page text.</p>',
 		'page_published' => 1
 	]);
 });
