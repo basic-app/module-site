@@ -71,7 +71,7 @@ class PageModel extends \BasicApp\Core\Model
 
     public static function getPage(string $url, bool $create = false, array $params = [])
     {
-        return $this->getEntity(['page_url' => $url], $create, $params);
+        return static::getEntity(['page_url' => $url], $create, $params);
     }
 
 }
