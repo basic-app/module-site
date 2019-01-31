@@ -2,10 +2,12 @@
 
 namespace BasicApp\Site\Controllers\Admin;
 
+use BasicApp\Site\Models\BlockModel;
+
 class Block extends \BasicApp\Core\AdminCrudController
 {
 
-	protected $modelClass = \BasicApp\Site\Models\Block::class;
+	protected $modelClass = BlockModel::class;
 
 	protected $viewPath = 'BasicApp\Site\Admin\Block';
 

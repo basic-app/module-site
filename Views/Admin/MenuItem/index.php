@@ -1,6 +1,6 @@
 <?php
 
-use BasicApp\Site\Models\MenuItem;
+use BasicApp\Site\Models\MenuItemModel;
 
 require __DIR__ . '/_common.php';
 
@@ -26,10 +26,10 @@ echo admin_theme_view('_table/begin');
 <thead>
     <tr>
         <th class="d-none d-sm-table-cell">#</th>
-        <th class="d-none d-md-table-cell"><?= MenuItem::fieldLabel('item_created_at');?></th>
-        <th><?= MenuItem::fieldLabel('item_url');?></th>
-        <th><?= MenuItem::fieldLabel('item_name');?></th>
-        <th><?= MenuItem::fieldLabel('item_sort');?></th>
+        <th class="d-none d-md-table-cell"><?= MenuItemModel::fieldLabel('item_created_at');?></th>
+        <th><?= MenuItemModel::fieldLabel('item_url');?></th>
+        <th><?= MenuItemModel::fieldLabel('item_name');?></th>
+        <th><?= MenuItemModel::fieldLabel('item_sort');?></th>
         <th colspan="2"></th>
     </tr>
 </thead>

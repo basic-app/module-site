@@ -2,7 +2,9 @@
 
 namespace BasicApp\Site\Models;
 
-class Page extends \BasicApp\Core\Model
+use Config\Database;
+
+class PageModel extends \BasicApp\Core\Model
 {
 
 	protected $table = 'pages';
@@ -52,11 +54,13 @@ class Page extends \BasicApp\Core\Model
 
 		$installed = true;
 
-		$count = $this->db->table('pages')->countAllResults();
+        $db = Database::connect();
+
+		$count = $db->table('pages')->countAllResults();
 
 		if ($count == 0)
 		{
-			$this->db->table('pages')->insert([
+			$db->table('pages')->insert([
 				'page_url' => 'index',
 				'page_name' => 'Index',
 				'page_text' => '<p>Index page text.</p>',

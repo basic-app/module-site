@@ -2,10 +2,12 @@
 
 namespace BasicApp\Site\Controllers\Admin;
 
+use BasicApp\Site\Models\PageModel;
+
 class Page extends \BasicApp\Core\AdminCrudController
 {
 
-	protected $modelClass = \BasicApp\Site\Models\Page::class;
+	protected $modelClass = PageModel::class;
 
 	protected $viewPath = 'BasicApp\Site\Admin\Page';
 

@@ -5,7 +5,7 @@ namespace BasicApp\Site\Models;
 class PageEntity extends \BasicApp\Core\Entity
 {
 
-    protected $modelClass = Page::class;
+    protected $modelClass = PageModel::class;
 
 	protected $page_id;
 

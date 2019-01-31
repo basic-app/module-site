@@ -5,7 +5,7 @@ namespace BasicApp\Site\Models;
 class MenuEntity extends \BasicApp\Core\Entity
 {
 
-    protected $modelClass = Menu::class;
+    protected $modelClass = MenuModel::class;
 
 	public $menu_id;
 

@@ -2,7 +2,7 @@
 
 require __DIR__ . '/_common.php';
 
-use BasicApp\Site\Models\Menu;
+use BasicApp\Site\Models\MenuModel;
 
 unset($this->data['breadcrumbs'][count($this->data['breadcrumbs']) - 1]['url']);
 
@@ -25,9 +25,9 @@ echo admin_theme_view('_table/begin');
 <thead>
     <tr>
         <th class="d-none d-sm-table-cell">#</th>
-        <th class="d-none d-md-table-cell"><?= Menu::fieldLabel('menu_created_at');?></th>
-        <th><?= Menu::fieldLabel('menu_uid');?></th>
-        <th><?= Menu::fieldLabel('menu_name');?></th>
+        <th class="d-none d-md-table-cell"><?= MenuModel::fieldLabel('menu_created_at');?></th>
+        <th><?= MenuModel::fieldLabel('menu_uid');?></th>
+        <th><?= MenuModel::fieldLabel('menu_name');?></th>
         <th>&nbsp;</th>
         <th colspan="2"></th>
     </tr>

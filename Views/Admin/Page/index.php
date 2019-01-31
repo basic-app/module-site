@@ -1,6 +1,6 @@
 <?php
 
-use BasicApp\Site\Models\Page;
+use BasicApp\Site\Models\PageModel;
 
 require __DIR__ . '/_common.php';
 
@@ -21,11 +21,11 @@ echo admin_theme_view('_table/begin');
 
 <thead>
     <tr>
-        <th class="d-none d-sm-table-cell"><?= Page::fieldLabel('page_id', true);?></th>
-        <th class="d-none d-md-table-cell"><?= Page::fieldLabel('page_created_at', true)?></th>        
-        <th><?= Page::fieldLabel('page_url', true)?></th>
-        <th class="d-none d-sm-table-cell"><?= Page::fieldLabel('page_name', true)?></th>
-        <th class="d-none d-lg-table-cell"><?= Page::fieldLabel('page_published', true)?></th>
+        <th class="d-none d-sm-table-cell"><?= PageModel::fieldLabel('page_id', true);?></th>
+        <th class="d-none d-md-table-cell"><?= PageModel::fieldLabel('page_created_at', true)?></th>        
+        <th><?= PageModel::fieldLabel('page_url', true)?></th>
+        <th class="d-none d-sm-table-cell"><?= PageModel::fieldLabel('page_name', true)?></th>
+        <th class="d-none d-lg-table-cell"><?= PageModel::fieldLabel('page_published', true)?></th>
         <th colspan="2"></th>
     </tr>
 </thead>

@@ -5,7 +5,7 @@ namespace BasicApp\Site\Models;
 class BlockEntity extends \BasicApp\Core\Entity
 {
 
-    protected $modelClass = Block::class;
+    protected $modelClass = BlockModel::class;
 
 	protected $block_id;
 

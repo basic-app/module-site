@@ -2,10 +2,10 @@
 
 use CodeIgniter\Events\Events;
 use Config\Database;
-use BasicApp\Site\Models\Page;
-use BasicApp\Site\Models\Block;
-use BasicApp\Site\Models\Menu;
-use BasicApp\Site\Models\MenuItem;
+use BasicApp\Site\Models\PageModel;
+use BasicApp\Site\Models\BlockModel;
+use BasicApp\Site\Models\MenuModel;
+use BasicApp\Site\Models\MenuItemModel;
 
 Events::on('admin_main_menu', function($menu)
 {
@@ -30,8 +30,8 @@ Events::on('admin_main_menu', function($menu)
 
 Events::on('install', function()
 {
-	Page::install();
-	Block::install();
-	Menu::install();
-	MenuItem::install();
+	PageModel::install();
+	BlockModel::install();
+	MenuModel::install();
+	MenuItemModel::install();
 });

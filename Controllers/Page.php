@@ -2,7 +2,7 @@
 
 namespace BasicApp\Site\Controllers;
 
-use BasicApp\Site\Models\Page as PageModel;
+use BasicApp\Site\Models\PageModel;
 use CodeIgniter\Exceptions\PageNotFoundException;
 
 class Page extends \BasicApp\Core\PublicController

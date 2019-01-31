@@ -1,10 +1,10 @@
 <?php
 
-use BasicApp\Site\Models\Menu;
+use BasicApp\Site\Models\MenuModel;
 
 $this->data['title'] = t('admin.menu', 'Menu');
 
-$parent = (new Menu)->find((int) $parentId);
+$parent = (new MenuModel)->find((int) $parentId);
 
 if (!$parent)
 {

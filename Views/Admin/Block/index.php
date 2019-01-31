@@ -1,6 +1,6 @@
 <?php
 
-use BasicApp\Site\Models\Block;
+use BasicApp\Site\Models\BlockModel;
 
 require __DIR__ . '/_common.php';
 
@@ -21,9 +21,9 @@ echo admin_theme_view('_table/begin');
 
 <thead>
     <tr>
-        <th class="d-none d-sm-table-cell"><?= Block::fieldLabel('block_id', true);?></th>
-        <th class="d-none d-md-table-cell"><?= Block::fieldLabel('block_created_at', true)?></th>
-        <th><?= Block::fieldLabel('block_uid', true)?></th>
+        <th class="d-none d-sm-table-cell"><?= BlockModel::fieldLabel('block_id', true);?></th>
+        <th class="d-none d-md-table-cell"><?= BlockModel::fieldLabel('block_created_at', true)?></th>
+        <th><?= BlockModel::fieldLabel('block_uid', true)?></th>
         <th colspan="2"></th>
     </tr>
 </thead>

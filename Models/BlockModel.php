@@ -2,7 +2,7 @@
 
 namespace BasicApp\Site\Models;
 
-class Block extends \BasicApp\Core\Model
+class BlockModel extends \BasicApp\Core\Model
 {
 
 	protected $table = 'blocks';

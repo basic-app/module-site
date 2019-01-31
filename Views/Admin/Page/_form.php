@@ -1,7 +1,5 @@
 <?php
 
-use BasicApp\Site\Models\Page;
-
 use App\Html\FormErrors;
 use App\Html\FormSubmitButton;
 use App\Html\FormInput;
