@@ -7,7 +7,7 @@ class Page extends \BasicApp\Core\AdminCrudController
 
 	protected $modelClass = \BasicApp\Site\Models\Page::class;
 
-	protected $viewPath = 'BasicApp\Site\Views\Admin\Page';
+	protected $viewPath = 'BasicApp\Site\Admin\Page';
 
 	protected $returnUrl = 'admin/page';
 

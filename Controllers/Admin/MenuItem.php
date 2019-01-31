@@ -7,7 +7,7 @@ class MenuItem extends \BasicApp\Core\AdminCrudController
 
 	protected $modelClass = \BasicApp\Site\Models\MenuItem::class;
 
-	protected $viewPath = 'BasicApp\Site\Views\Admin\MenuItem';
+	protected $viewPath = 'BasicApp\Site\Admin\MenuItem';
 
 	protected $returnUrl = 'admin/menuItem';
 
