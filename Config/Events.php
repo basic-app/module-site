@@ -1,6 +1,7 @@
 <?php
 
 use CodeIgniter\Events\Events;
+use Config\Database;
 
 Events::on('admin_main_menu', function($menu)
 {
@@ -21,4 +22,17 @@ Events::on('admin_main_menu', function($menu)
         'label' => t('admin.menu', 'Menu'),
         'icon' => 'fa fa-list-ul'
     ];
+});
+
+
+Events::on('install', function()
+{
+	$db = Database::connect();
+
+	$db->table('pages')->insert([
+		'page_url'       => 'index',
+		'page_name'      => 'Index',
+		'page_text'      => '<p>Index page text.</p>',
+		'page_published' => 1
+	]);
 });
