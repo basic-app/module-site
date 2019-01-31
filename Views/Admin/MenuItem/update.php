@@ -9,7 +9,7 @@ $this->data['breadcrumbs'][] = ['label' => t('admin', 'Update')];
 
 	<?= PHPTheme::widget('card', [
 		'header' => $this->data['title'],
-		'content' => app_view('BasicApp\Site\Views\Admin\MenuItem\_form', [
+		'content' => app_view('BasicApp\Site\Admin\MenuItem\_form', [
 			'model' => $model,
 			'errors' => $errors
 		])
