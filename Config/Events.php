@@ -29,10 +29,22 @@ Events::on('install', function()
 {
 	$db = Database::connect();
 
-	$db->table('pages')->insert([
-		'page_url' => 'index',
-		'page_name' => 'Index',
-		'page_text' => '<p>Index page text.</p>',
-		'page_published' => 1
-	]);
+	$count = $db->table('pages')->countAllResults();
+
+	if ($count == 0)
+	{
+		$db->table('pages')->insert([
+			'page_url' => 'index',
+			'page_name' => 'Index',
+			'page_text' => '<p>Index page text.</p>',
+			'page_published' => 1
+		]);
+
+		echo 'Index page created.' . "\n";
+	}
+	else
+	{
+		echo 'Index page exists.' . "\n";
+	}
+
 });
