@@ -2,6 +2,10 @@
 
 use CodeIgniter\Events\Events;
 use Config\Database;
+use BasicApp\Site\Models\Page;
+use BasicApp\Site\Models\Block;
+use BasicApp\Site\Models\Menu;
+use BasicApp\Site\Models\MenuItem;
 
 Events::on('admin_main_menu', function($menu)
 {
@@ -24,27 +28,10 @@ Events::on('admin_main_menu', function($menu)
     ];
 });
 
-
 Events::on('install', function()
 {
-	$db = Database::connect();
-
-	$count = $db->table('pages')->countAllResults();
-
-	if ($count == 0)
-	{
-		$db->table('pages')->insert([
-			'page_url' => 'index',
-			'page_name' => 'Index',
-			'page_text' => '<p>Index page text.</p>',
-			'page_published' => 1
-		]);
-
-		echo 'Index page created.' . "\n";
-	}
-	else
-	{
-		echo 'Index page exists.' . "\n";
-	}
-
+	Page::install();
+	Block::install();
+	Menu::install();
+	MenuItem::install();
 });

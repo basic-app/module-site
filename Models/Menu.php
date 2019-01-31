@@ -26,4 +26,16 @@ class Menu extends \BasicApp\Core\Model
 		'menu_updated_at' => 'Updated At'
 	];
 
+	public static function install()
+	{
+		static $installed = false;
+
+		if ($installed)
+		{
+			return;
+		}
+
+		$installed = true;
+	}	
+
 }

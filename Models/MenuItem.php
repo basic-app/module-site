@@ -66,4 +66,16 @@ class MenuItem extends \BasicApp\Core\Model
 		return $return;
 	}
 
+	public static function install()
+	{
+		static $installed = false;
+
+		if ($installed)
+		{
+			return;
+		}
+
+		$installed = true;
+	}	
+
 }

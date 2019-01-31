@@ -41,4 +41,28 @@ class Page extends \BasicApp\Core\Model
 
 	protected $updatedField = 'page_updated_at';
 
+	public static function install()
+	{
+		static $installed = false;
+
+		if ($installed)
+		{
+			return;
+		}
+
+		$installed = true;
+
+		$count = $this->db->table('pages')->countAllResults();
+
+		if ($count == 0)
+		{
+			$this->db->table('pages')->insert([
+				'page_url' => 'index',
+				'page_name' => 'Index',
+				'page_text' => '<p>Index page text.</p>',
+				'page_published' => 1
+			]);
+		}
+	}
+
 }

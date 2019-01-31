@@ -61,4 +61,16 @@ class Block extends \BasicApp\Core\Model
 		return (new $class)->like('block_uid', $prefix . '.', 'left')->findAll();
 	}
 
+	public static function install()
+	{
+		static $installed = false;
+
+		if ($installed)
+		{
+			return;
+		}
+
+		$installed = true;
+	}
+
 }
