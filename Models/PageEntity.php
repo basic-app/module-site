@@ -26,7 +26,7 @@ class PageEntity extends \BasicApp\Core\Entity
 		return $this->page_published ? t('attribute', 'Published') : t('attribute', 'Not Published');
 	}
 
-    public function setMetaTags($view)
+    public function setMetaTags($view = null)
     {
         PageModel::pageSetMetaTags($this, $view);
     }

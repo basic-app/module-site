@@ -3,6 +3,7 @@
 namespace BasicApp\Site\Models;
 
 use Config\Database;
+use Config\Services;
 
 class PageModel extends \BasicApp\Core\Model
 {
@@ -74,8 +75,13 @@ class PageModel extends \BasicApp\Core\Model
         return static::getEntity(['page_url' => $url], $create, $params);
     }
 
-    public static function pageSetMetaTags($page, $view)
+    public static function pageSetMetaTags($page, $view = null)
     {
+        if (!$view)
+        {
+            $view = Services::renderer();
+        }
+
         $view->setVar('title', $page->page_name);
     }
 
