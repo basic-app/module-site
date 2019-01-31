@@ -8,8 +8,6 @@ use CodeIgniter\Exceptions\PageNotFoundException;
 class Page extends \BasicApp\Core\PublicController
 {
 
-    protected $viewPath = 'App\Views';
-
 	public function view($url = 'index')
 	{
 		$pageModel = new PageModel;
