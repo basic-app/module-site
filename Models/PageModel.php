@@ -76,7 +76,7 @@ class PageModel extends \BasicApp\Core\Model
 
     public static function pageSetMetaTags($page, $view)
     {
-        $view->data['title'] = $page->page_name;
+        $view->setVar('title', $page->page_name);
     }
 
 }
