@@ -2,7 +2,7 @@
 
 namespace BasicApp\Site\Controllers\Admin;
 
-class MenuItem extends \BasicApp\AdminCrudController
+class MenuItem extends \BasicApp\Core\AdminCrudController
 {
 
 	protected $modelClass = \BasicApp\Site\Models\MenuItem::class;
