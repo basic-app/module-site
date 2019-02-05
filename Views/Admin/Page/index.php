@@ -28,7 +28,7 @@ $event = new StdClass;
 $event->columns = [
     ['content' => PageModel::fieldLabel('page_id'), 'preset' => 'id small'],
     ['content' => PageModel::fieldLabel('page_created_at'), 'preset' => 'medium'],
-    ['content' => PageModel::fieldLabel('page_uid'), 'preset' => 'small'],
+    ['content' => PageModel::fieldLabel('page_url'), 'preset' => 'small'],
     ['content' => PageModel::fieldLabel('page_name')],
     ['content' => PageModel::fieldLabel('page_published'), 'preset' => 'large']
 ];
