@@ -15,53 +15,35 @@ $this->data['actionMenu'][] = [
 	]
 ];
 
-echo admin_theme_view('_table/begin');
+$rows = [];
 
-?>
+foreach($elements as $model)
+{
+    $rows[] = app_view('BasicApp\Site\Admin\Page\_row', ['model' => $model]);
+}
 
-<thead>
-    <tr>
-        <th class="d-none d-sm-table-cell"><?= PageModel::fieldLabel('page_id', true);?></th>
-        <th class="d-none d-md-table-cell"><?= PageModel::fieldLabel('page_created_at', true)?></th>        
-        <th><?= PageModel::fieldLabel('page_url', true)?></th>
-        <th class="d-none d-sm-table-cell"><?= PageModel::fieldLabel('page_name', true)?></th>
-        <th class="d-none d-lg-table-cell"><?= PageModel::fieldLabel('page_published', true)?></th>
-        <th colspan="2"></th>
-    </tr>
-</thead>
+$event = new StdClass;
 
-<tbody>
+$event->columns = [
+    ['content' => PageModel::fieldLabel('page_id'), 'preset' => 'id small'],
+    ['content' => PageModel::fieldLabel('page_created_at'), 'preset' => 'medium'],
+    ['content' => PageModel::fieldLabel('page_uid'), 'preset' => 'small'],
+    ['content' => PageModel::fieldLabel('page_name')],
+    ['content' => PageModel::fieldLabel('page_published'), 'preset' => 'large']
+];
 
-<?php foreach($elements as $row):?>
+Events::trigger('admin_page_table_head', $event);
 
-    <tr>
-        <td class="d-none d-sm-table-cell text-right" style="width: 1%;"><?= $row->page_id;?></td>
-        <td class="d-none d-md-table-cell"><?= $row->page_created_at;?></td>        
-        <td class="process"><?= $row->page_url;?></td>
-        <td class="d-none d-sm-table-cell"><?= $row->page_name;?></td>
-        <td class="d-none d-lg-table-cell"><?= $row->formattedPublished;?></td>
-        <td style="width: 1%; padding-left: 10px;">
+$event->columns[] = ['options' => ['colspan' => 2]];
 
-            <?= PHPTheme::widget('tableButtonUpdate', [
-                'url' => classic_url('admin/page/update' , ['id' => $row->page_id]),
-                'label' => t('admin', 'Update')
-            ]);?>
+echo PHPTheme::widget('table', [
+    'head' => [
+        'columns' => $event->columns
+    ],
+    'rows' => $rows
+]);
 
-        </td>
-        <td style="width: 1%; padding-left: 10px; padding-right: 20px;">
-        	
-            <?= PHPTheme::widget('tableButtonDelete', [
-                'url' => classic_url('admin/page/delete', ['id' => $row->page_id]),
-                'label' => t('admin', 'Delete')
-            ]);?>
-
-        </td>
-    </tr>
-
-<?php endforeach;?>
-
-</tbody>
-
-<?php
-
-echo admin_theme_view('_table/end');
+if ($pager)
+{
+    echo $pager->links('default', 'bootstrap4');
+}

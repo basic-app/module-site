@@ -1,22 +1,20 @@
 <?php
 
-use App\Html\FormErrors;
-use App\Html\FormSubmitButton;
-use App\Html\FormInput;
-use App\Html\FormTextareaCode;
+echo PHPTheme::widget('formFieldText', [
+    'name' => 'block_uid',
+    'value' => $model->block_uid,
+    'label' => $model->fieldLabel('block_uid'),
+    'errors' => array_key_exists('block_uid', $errors) ? $errors['block_uid'] : null
+]);
 
-echo FormInput::factory([
-	'label' => $model->fieldLabel('block_uid'), 
-	'name' => 'block_uid',
-	'errors' => $errors
-])->render($model->block_uid);
+echo PHPTheme::widget('formFieldTextarea', [
+    'preset' => 'editor',
+    'name' => 'block_content',
+    'value' => $model->block_content,
+    'label' => $model->fieldLabel('block_content'),
+    'error' => array_key_exists('block_content', $errors) ? $errors['block_content'] : null
+]);
 
-echo FormTextareaCode::factory([
-	'label' => $model->fieldLabel('block_content'), 
-	'name' => 'block_content',
-	'errors' => $errors
-])->render($model->block_content);
+echo PHPTheme::widget('formErrors', ['errors' => $errors]);
 
-echo FormErrors::factory()->render($errors);
-
-echo FormSubmitButton::factory()->render($model->block_id ? t('admin', 'Update') : t('admin', 'Create'));
+echo PHPTheme::widget('formButton', ['type' => 'submit', 'label' => $model->admin_id ? t('admin', 'Update') : t('admin', 'Insert')]);

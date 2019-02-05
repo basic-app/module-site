@@ -15,49 +15,33 @@ $this->data['actionMenu'][] = [
 	]	
 ];
 
-echo admin_theme_view('_table/begin');
+$rows = [];
 
-?>
+foreach($elements as $model)
+{
+    $rows[] = app_view('BasicApp\Site\Admin\Block\_row', ['model' => $model]);
+}
 
-<thead>
-    <tr>
-        <th class="d-none d-sm-table-cell"><?= BlockModel::fieldLabel('block_id', true);?></th>
-        <th class="d-none d-md-table-cell"><?= BlockModel::fieldLabel('block_created_at', true)?></th>
-        <th><?= BlockModel::fieldLabel('block_uid', true)?></th>
-        <th colspan="2"></th>
-    </tr>
-</thead>
+$event = new StdClass;
 
-<tbody>
+$event->columns = [
+    ['content' => BlockModel::fieldLabel('block_id'), 'preset' => 'id small'],
+    ['content' => BlockModel::fieldLabel('block_created_at'), 'preset' => 'medium'],
+    ['content' => BlockModel::fieldLabel('block_uid')]
+];
 
-<?php foreach($elements as $row):?>
+Events::trigger('admin_block_table_head', $event);
 
-    <tr>
-        <td class="d-none d-sm-table-cell text-right" style="width: 1%;"><?= $row->block_id;?></td>
-        <td class="d-none d-md-table-cell"><?= $row->block_created_at;?></td>
-        <td class="process"><?= $row->block_uid;?></td>
-        <td style="width: 1%; padding-left: 10px;">
+$event->columns[] = ['options' => ['colspan' => 2]];
 
-            <?= PHPTheme::widget('tableButtonUpdate', [
-                'url' => classic_url('admin/block/update', ['id' => $row->block_id]),
-                'label' => t('admin', 'Update')
-            ]);?>
+echo PHPTheme::widget('table', [
+    'head' => [
+        'columns' => $event->columns
+    ],
+    'rows' => $rows
+]);
 
-        </td>
-        <td style="width: 1%; padding-left: 10px; padding-right: 20px;">
-
-            <?= PHPTheme::widget('tableButtonDelete', [
-                'url' => classic_url('admin/block/delete', ['id' => $row->block_id]),
-                'label' => t('admin', 'Delete')
-            ]);?>
-                
-        </td>
-    </tr>
-
-<?php endforeach;?>
-
-</tbody>
-
-<?php
-
-echo admin_theme_view('_table/end');
+if ($pager)
+{
+    echo $pager->links('default', 'bootstrap4');
+}

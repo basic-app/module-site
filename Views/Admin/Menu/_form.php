@@ -1,21 +1,19 @@
 <?php
 
-use App\Html\FormErrors;
-use App\Html\FormSubmitButton;
-use App\Html\FormInput;
+echo PHPTheme::widget('formFieldText', [
+    'name'  => 'menu_name',
+    'value' => $model->menu_name,
+    'label' => $model->fieldLabel('menu_name'),
+    'error' => array_key_exists('menu_name', $errors) ? $errors['menu_name'] : null
+]);
 
-echo FormInput::factory([
-	'label' => $model->fieldLabel('menu_name'), 
-	'name' => 'menu_name',
-	'errors' => $errors
-])->render($model->menu_name);
+echo PHPTheme::widget('formFieldText', [
+    'name' => 'menu_uid',
+    'value' => $model->menu_uid,
+    'label' => $model->fieldLabel('menu_uid'),
+    'error' => array_key_exists('menu_uid', $errors) ? $errors['menu_uid'] : null
+]);
 
-echo FormInput::factory([
-	'label' => $model->fieldLabel('menu_uid'), 
-	'name' => 'menu_uid', 
-	'errors' => $errors
-])->render($model->menu_uid);
+echo PHPTheme::widget('formErrors', ['errors' => $errors]);
 
-echo FormErrors::factory()->render($errors);
-
-echo FormSubmitButton::factory()->render($model->menu_id ? t('admin', 'Update') : t('admin', 'Create'));
+echo PHPTheme::widget('formButton', ['type' => 'submit', 'label' => $model->admin_id ? t('admin', 'Update') : t('admin', 'Insert')]);

@@ -1,35 +1,33 @@
 <?php
 
-use App\Html\FormErrors;
-use App\Html\FormSubmitButton;
-use App\Html\FormInput;
-use App\Html\FormTextareaEditor;
-use App\Html\FormCheckbox;
+echo PHPTheme::widget('formFieldText', [
+    'name'  => 'page_name',
+    'value' => $model->page_name,
+    'label' => $model->fieldLabel('page_name'),
+    'error' => array_key_exists('page_name', $errors) ? $errors['page_name'] : null
+]);
 
-echo FormInput::factory([
-	'label' => $model->fieldLabel('page_name'), 
-	'name' => 'page_name',
-	'errors' => $errors
-])->render($model->page_name);
+echo PHPTheme::widget('formFieldText', [
+    'name'  => 'page_url',
+    'value' => $model->page_url,
+    'label' => $model->fieldLabel('page_url'),
+    'error' => array_key_exists('page_url', $errors) ? $errors['page_url'] : null
+]);
 
-echo FormInput::factory([
-	'label' => $model->fieldLabel('page_url'), 
-	'name' => 'page_url',
-	'errors' => $errors
-])->render($model->page_url);
+echo PHPTheme::widget('formFieldTextarea', [
+    'name'  => 'page_text',
+    'value' => $model->page_text,
+    'label' => $model->fieldLabel('page_text'),
+    'error' => array_key_exists('page_text', $errors) ? $errors['page_text'] : null
+]);
 
-echo FormTextareaEditor::factory([
-	'label' => $model->fieldLabel('page_text'), 
-	'name' => 'page_text',
-	'errors' => $errors
-])->render($model->page_text);
+echo PHPTheme::widget('formCheckbox', [
+    'name'  => 'page_published',
+    'value' => $model->page_published,
+    'label' => $model->fieldLabel('page_published'),
+    'error' => array_key_exists('page_published', $errors) ? $errors['page_published'] : null
+]);
 
-echo FormCheckbox::factory([
-	'label' => $model->fieldLabel('page_published'), 
-	'name' => 'page_published',
-	'errors' => $errors
-])->render($model->page_published);
+echo PHPTheme::widget('formErrors', ['errors' => $errors]);
 
-echo FormErrors::factory()->render($errors);
-
-echo FormSubmitButton::factory()->render($model->page_id ? t('admin', 'Update') : t('admin', 'Create'));
+echo PHPTheme::widget('formButton', ['type' => 'submit', 'label' => $model->admin_id ? t('admin', 'Update') : t('admin', 'Insert')]);
