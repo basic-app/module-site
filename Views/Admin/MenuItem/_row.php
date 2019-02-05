@@ -5,11 +5,11 @@ use CodeIgniter\Events\Events;
 $event = new StdClass;
 
 $event->columns = [
-    ['preset' => 'id small', 'value' => $model->item_id],
-    ['preset' => 'medium', 'value' => $model->item_created_at],
-    ['preset' => 'small', 'value' => $model->item_url],
-    ['preset' => 'primary', 'value' => $model->item_name],
-    ['preset' => 'small', 'value' => $model->item_sort]
+    ['preset' => 'id small', 'content' => $model->item_id],
+    ['preset' => 'medium', 'content' => $model->item_created_at],
+    ['preset' => 'small', 'content' => $model->item_url],
+    ['preset' => 'primary', 'content' => $model->item_name],
+    ['preset' => 'small', 'content' => $model->item_sort]
 ];
 
 Events::trigger('admin_menu_item_table_row', $event);

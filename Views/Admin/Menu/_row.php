@@ -5,10 +5,10 @@ use CodeIgniter\Events\Events;
 $event = new StdClass;
 
 $event->columns = [
-    ['preset' => 'id small', 'value' => $model->menu_id],
-    ['preset' => 'medium', 'value' => $model->menu_created_at],
-    ['preset' => 'small', 'value' => $model->menu_uid],
-    ['preset' => 'primary', 'value' => $model->menu_name],
+    ['preset' => 'id small', 'content' => $model->menu_id],
+    ['preset' => 'medium', 'content' => $model->menu_created_at],
+    ['preset' => 'small', 'content' => $model->menu_uid],
+    ['preset' => 'primary', 'content' => $model->menu_name],
     [
         'preset' => 'link', 
         'label' => t('admin.menu', 'Menu Items'), 

@@ -5,11 +5,11 @@ use CodeIgniter\Events\Events;
 $event = new StdClass;
 
 $event->columns = [
-    ['preset' => 'id small', 'value' => $model->page_id],
-    ['preset' => 'medium', 'value' => $model->page_created_at],
-    ['preset' => 'small', 'value' => $model->page_url],
-    ['preset' => 'primary', 'value' => $model->page_name],
-    ['preset' => 'large', 'value' => $model->formattedPublished]
+    ['preset' => 'id small', 'content' => $model->page_id],
+    ['preset' => 'medium', 'content' => $model->page_created_at],
+    ['preset' => 'small', 'content' => $model->page_url],
+    ['preset' => 'primary', 'content' => $model->page_name],
+    ['preset' => 'large', 'content' => $model->formattedPublished]
 ];
 
 Events::trigger('admin_page_table_row', $event);

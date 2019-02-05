@@ -5,9 +5,9 @@ use CodeIgniter\Events\Events;
 $event = new StdClass;
 
 $event->columns = [
-    ['preset' => 'id small', 'value' => $model->block_id],
-    ['preset' => 'medium date', 'value' => $model->block_created_at],
-    ['preset' => 'primary', 'value' => $model->block_uid]
+    ['preset' => 'id small', 'content' => $model->block_id],
+    ['preset' => 'medium date', 'content' => $model->block_created_at],
+    ['preset' => 'primary', 'content' => $model->block_uid]
 ];
 
 Events::trigger('admin_block_table_row', $event);
