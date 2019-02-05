@@ -21,7 +21,7 @@ echo PHPTheme::widget('formFieldTextarea', [
     'error' => array_key_exists('page_text', $errors) ? $errors['page_text'] : null
 ]);
 
-echo PHPTheme::widget('formCheckbox', [
+echo PHPTheme::widget('formFieldCheckbox', [
     'name'  => 'page_published',
     'value' => $model->page_published,
     'label' => $model->fieldLabel('page_published'),
