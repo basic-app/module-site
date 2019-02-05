@@ -10,7 +10,7 @@ $event->columns = [
     ['preset' => 'small', 'content' => $model->menu_uid],
     ['preset' => 'primary', 'content' => $model->menu_name],
     [
-        'preset' => 'link', 
+        'type' => 'link', 
         'label' => t('admin.menu', 'Menu Items'), 
         'url' => classic_url('admin/menu', ['id' => $model->getPrimaryKey()])
     ]
