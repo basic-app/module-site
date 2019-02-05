@@ -7,6 +7,11 @@ use BasicApp\Site\Models\BlockModel;
 use BasicApp\Site\Models\MenuModel;
 use BasicApp\Site\Models\MenuItemModel;
 
+Event::on('pre_system', function()
+{
+    helper(['block']);
+});
+
 Events::on('admin_main_menu', function($menu)
 {
     $menu->items['pages'] = [
