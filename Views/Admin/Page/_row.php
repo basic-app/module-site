@@ -7,7 +7,7 @@ $event = new StdClass;
 $event->columns = [
     ['preset' => 'id small', 'value' => $model->page_id],
     ['preset' => 'medium', 'value' => $model->page_created_at],
-    ['preset' => 'small', 'value' => $model->page_uid],
+    ['preset' => 'small', 'value' => $model->page_url],
     ['preset' => 'primary', 'value' => $model->page_name],
     ['preset' => 'large', 'value' => $model->formattedPublished]
 ];
