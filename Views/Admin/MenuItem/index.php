@@ -30,11 +30,11 @@ foreach($elements as $model)
 $event = new StdClass;
 
 $event->columns = [
-    ['content' => MenuItemModel::fieldLabel('menu_id'), 'preset' => 'id small'],
-    ['content' => MenuItemModel::fieldLabel('menu_created_at'), 'preset' => 'medium'],
-    ['content' => MenuItemModel::fieldLabel('menu_url'), 'preset' => 'small'],
-    ['content' => MenuItemModel::fieldLabel('menu_name')],
-    ['content' => MenuItemModel::fieldLabel('menu_sort'), 'preset' => 'small']
+    ['content' => MenuItemModel::fieldLabel('item_id'), 'preset' => 'id small'],
+    ['content' => MenuItemModel::fieldLabel('item_created_at'), 'preset' => 'medium'],
+    ['content' => MenuItemModel::fieldLabel('item_url'), 'preset' => 'small'],
+    ['content' => MenuItemModel::fieldLabel('item_name')],
+    ['content' => MenuItemModel::fieldLabel('item_sort'), 'preset' => 'small']
 ];
 
 Events::trigger('admin_menu_item_table_head', $event);
