@@ -8,7 +8,7 @@ require __DIR__ . '/_common.php';
 unset($this->data['breadcrumbs'][count($this->data['breadcrumbs']) - 1]['url']);
 
 $this->data['actionMenu'][] = [
-	'url' => classic_url('admin/menuItem/create', [
+	'url' => classic_url('admin/menu-item/create', [
         'parentId' => $parentId,
 		'returnUrl' => classic_uri_string(),
 		'link_user_id' => $parentId

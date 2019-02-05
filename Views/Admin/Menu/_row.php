@@ -20,7 +20,7 @@ Events::trigger('admin_menu_table_row', $event);
 
 $event->columns[] = [
     'content' => PHPTheme::widget('tableButtonUpdate', [
-        'url' => classic_url('admin/block/update', [
+        'url' => classic_url('admin/menu/update', [
             'id' => $model->getPrimaryKey(), 
             'returnUrl' => classic_uri_string()
         ])
@@ -30,7 +30,7 @@ $event->columns[] = [
 
 $event->columns[] = [
     'content' => PHPTheme::widget('tableButtonDelete', [
-        'url' => classic_url('admin/block/delete', [
+        'url' => classic_url('admin/menu/delete', [
             'id' => $model->getPrimaryKey(), 
             'returnUrl' => classic_uri_string()
         ])
