@@ -1,5 +1,6 @@
 <?php
 
+use CodeIgniter\Events\Events;
 use BasicApp\Site\Models\BlockModel;
 
 require __DIR__ . '/_common.php';

@@ -1,5 +1,6 @@
 <?php
 
+use CodeIgniter\Events\Events;
 use BasicApp\Site\Models\MenuItemModel;
 
 require __DIR__ . '/_common.php';

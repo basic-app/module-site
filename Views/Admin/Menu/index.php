@@ -2,6 +2,7 @@
 
 require __DIR__ . '/_common.php';
 
+use CodeIgniter\Events\Events;
 use BasicApp\Site\Models\MenuModel;
 
 unset($this->data['breadcrumbs'][count($this->data['breadcrumbs']) - 1]['url']);

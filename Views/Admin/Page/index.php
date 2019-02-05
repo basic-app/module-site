@@ -1,5 +1,6 @@
 <?php
 
+use CodeIgniter\Events\Events;
 use BasicApp\Site\Models\PageModel;
 
 require __DIR__ . '/_common.php';
