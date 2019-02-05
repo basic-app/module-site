@@ -17,4 +17,4 @@ echo PHPTheme::widget('formFieldTextarea', [
 
 echo PHPTheme::widget('formErrors', ['errors' => $errors]);
 
-echo PHPTheme::widget('formButton', ['type' => 'submit', 'label' => $model->admin_id ? t('admin', 'Update') : t('admin', 'Insert')]);
+echo PHPTheme::widget('formButton', ['type' => 'submit', 'label' => $model->block_id ? t('admin', 'Update') : t('admin', 'Insert')]);
