@@ -9,7 +9,11 @@ $event->columns = [
     ['preset' => 'medium', 'value' => $model->menu_created_at],
     ['preset' => 'small', 'value' => $model->menu_uid],
     ['preset' => 'primary', 'value' => $model->menu_name],
-    ['preset' => 'link', 'label' => t('admin.menu', 'Menu Items'), 'url' => classic_url('admin/menu', ['id' => $model->primaryKey()])]
+    [
+        'preset' => 'link', 
+        'label' => t('admin.menu', 'Menu Items'), 
+        'url' => classic_url('admin/menu', ['id' => $model->getPrimaryKey()])
+    ]
 ];
 
 Events::trigger('admin_menu_table_row', $event);
