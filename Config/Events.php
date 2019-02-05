@@ -7,7 +7,7 @@ use BasicApp\Site\Models\BlockModel;
 use BasicApp\Site\Models\MenuModel;
 use BasicApp\Site\Models\MenuItemModel;
 
-Event::on('pre_system', function()
+Events::on('pre_system', function()
 {
     helper(['block']);
 });
