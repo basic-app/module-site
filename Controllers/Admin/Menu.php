@@ -2,17 +2,6 @@
 
 namespace BasicApp\Site\Controllers\Admin;
 
-use BasicApp\Site\Models\MenuModel;
-
-class Menu extends \BasicApp\Core\AdminCrudController
+class Menu extends BaseMenu
 {
-
-	protected $modelClass = MenuModel::class;
-
-	protected $viewPath = 'BasicApp\Site\Admin\Menu';
-
-	protected $returnUrl = 'admin/menu';
-
-	protected $perPage = null;
-
 }
