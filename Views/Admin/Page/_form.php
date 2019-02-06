@@ -15,10 +15,11 @@ echo PHPTheme::widget('formFieldText', [
 ]);
 
 echo PHPTheme::widget('formFieldTextarea', [
-    'name'  => 'page_text',
-    'value' => $model->page_text,
-    'label' => $model->fieldLabel('page_text'),
-    'error' => array_key_exists('page_text', $errors) ? $errors['page_text'] : null
+    'preset' => 'editor',
+    'name'   => 'page_text',
+    'value'  => $model->page_text,
+    'label'  => $model->fieldLabel('page_text'),
+    'error'  => array_key_exists('page_text', $errors) ? $errors['page_text'] : null
 ]);
 
 echo PHPTheme::widget('formFieldCheckbox', [
