@@ -10,7 +10,7 @@ unset($this->data['breadcrumbs'][count($this->data['breadcrumbs']) - 1]['url']);
 $this->data['actionMenu'][] = [
 	'url' => classic_url('admin/page/create', ['returnUrl' => 'admin/page']), 
 	'label' => t('admin.menu', 'Add Page'), 
-	'icon' => 'plus',
+	'icon' => 'fa fa-plus',
 	'linkOptions' => [
 		'class' => 'btn btn-success'
 	]
