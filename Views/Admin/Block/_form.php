@@ -8,7 +8,7 @@ echo PHPTheme::widget('formFieldText', [
 ]);
 
 echo PHPTheme::widget('formFieldTextarea', [
-    'preset' => 'editor',
+    'preset' => 'code',
     'name' => 'block_content',
     'value' => $model->block_content,
     'label' => $model->fieldLabel('block_content'),
