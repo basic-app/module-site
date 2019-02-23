@@ -37,9 +37,14 @@ class BlockModel extends \BasicApp\Core\Model
 
 	protected $uidField = 'block_uid';
 
+    public static function getBlock(string $uid, bool $create = true, array $params = [])
+    {
+        return static::getEntity(['block_uid' => $uid], $create, $params);
+    }
+
 	public static function content(string $uid, bool $create = true, array $params = []) : string
 	{
-		$model = static::get($uid, $create, $params);
+		$model = static::getBlock($uid, $create, $params);
 
 		if ($model)
 		{
