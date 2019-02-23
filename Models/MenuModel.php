@@ -26,6 +26,11 @@ class MenuModel extends \BasicApp\Core\Model
 		'menu_updated_at' => 'Updated At'
 	];
 
+    public static function getMenu(string $uid, bool $create = false, array $params = [])
+    {
+        return static::getEntity(['menu_uid' => $uid], $create, $params);
+    }
+
 	public static function install()
 	{
 		static $installed = false;
