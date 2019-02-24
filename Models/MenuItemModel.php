@@ -21,7 +21,8 @@ class MenuItemModel extends \BasicApp\Core\Model
 	];
 
 	protected static $fieldLabels = [
-		'item_name' => 'Name',
+		'item_id' => 'ID',
+        'item_name' => 'Name',
 		'item_url' => 'Url',
 		'item_sort' => 'Sort',
 		'item_created_at' => 'Created At',
@@ -76,6 +77,6 @@ class MenuItemModel extends \BasicApp\Core\Model
 		}
 
 		$installed = true;
-	}	
+	}
 
 }
