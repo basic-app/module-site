@@ -12,7 +12,7 @@ use BasicApp\Site\Controllers\Admin\Menu;
 
 Events::on('pre_system', function()
 {
-    helper(['block']);
+    helper(['block', 'menu']);
 });
 
 Events::on('admin_main_menu', function($menu)
