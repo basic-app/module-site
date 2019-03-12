@@ -11,7 +11,7 @@ $event->columns = [
     ['preset' => 'primary', 'content' => $model->menu_name],
     [
         'type' => 'link', 
-        'label' => t('admin.menu', 'Menu Items'), 
+        'label' => t('admin.menu', 'Items'), 
         'url' => classic_url('admin/menu-item', ['parentId' => $model->getPrimaryKey()])
     ]
 ];
