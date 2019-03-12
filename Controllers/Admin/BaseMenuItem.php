@@ -13,7 +13,7 @@ abstract class BaseMenuItem extends \BasicApp\Core\AdminCrudController
 
 	protected $returnUrl = 'admin/menuItem';
 
-	protected $parentField = 'item_menu_id';
+	protected $parentKey = 'item_menu_id';
 
 	protected $orderBy = 'item_sort';
 
