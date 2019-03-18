@@ -1,8 +1,12 @@
 <?php
-
+/**
+ * @package Basic App Site
+ * @license MIT License
+ * @link    http://basic-app.com
+ */
 namespace BasicApp\Site\Models;
 
-class MenuEntity extends \BasicApp\Core\Entity
+abstract class BaseMenu extends \BasicApp\Core\Entity
 {
 
     protected $modelClass = MenuModel::class;

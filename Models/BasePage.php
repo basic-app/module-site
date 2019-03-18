@@ -1,8 +1,12 @@
 <?php
-
+/**
+ * @package Basic App Site
+ * @license MIT License
+ * @link    http://basic-app.com
+ */
 namespace BasicApp\Site\Models;
 
-class PageEntity extends \BasicApp\Core\Entity
+abstract class BasePage extends \BasicApp\Core\Entity
 {
 
     protected $modelClass = PageModel::class;

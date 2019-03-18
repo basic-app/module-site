@@ -6,6 +6,6 @@
  */
 namespace BasicApp\Site\Models;
 
-class PageModel extends BasePageModel
+class Page extends BasePage
 {   
 }
