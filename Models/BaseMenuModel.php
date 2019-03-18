@@ -57,19 +57,19 @@ abstract class BaseMenuModel extends \BasicApp\Core\Model
             MenuItemModel::getEntity(
                 ['item_menu_id' => $mainMenu->menu_id, 'item_url' => '/'], 
                 true, 
-                ['menu_name' => 'Index']
+                ['item_name' => 'Index']
             );
 
             MenuItemModel::getEntity(
                 ['item_menu_id' => $mainMenu->menu_id, 'item_url' => '/blog'], 
                 true, 
-                ['menu_name' => 'Blog']
+                ['item_name' => 'Blog']
             );
 
             MenuItemModel::getEntity(
                 ['item_menu_id' => $mainMenu->menu_id, 'item_url' => '/page/about'], 
                 true, 
-                ['menu_name' => 'About']
+                ['item_name' => 'About']
             );
         }
 
