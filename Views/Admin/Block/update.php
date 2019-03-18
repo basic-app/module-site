@@ -7,7 +7,7 @@ $this->data['breadcrumbs'][] = ['label' => t('admin', 'Update')];
 ?>
 <form method="POST" id="admin-block-update-form">
 
-	<?= PHPTheme::widget('card', [
+	<?= admin_theme_widget('card', [
 		'header' => $this->data['title'],
 		'content' => app_view('BasicApp\Site\Admin\Block\_form', [
 			'model' => $model,

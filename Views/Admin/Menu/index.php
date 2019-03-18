@@ -40,7 +40,7 @@ Events::trigger('admin_menu_table_head', $event);
 
 $event->columns[] = ['options' => ['colspan' => 2]];
 
-echo PHPTheme::widget('table', [
+echo admin_theme_widget('table', [
     'head' => [
         'columns' => $event->columns
     ],

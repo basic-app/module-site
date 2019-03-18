@@ -13,7 +13,7 @@ $event->columns = [
 Events::trigger('admin_block_table_row', $event);
 
 $event->columns[] = [
-    'content' => PHPTheme::widget('tableButtonUpdate', [
+    'content' => admin_theme_widget('tableButtonUpdate', [
         'url' => classic_url('admin/block/update', [
             'id' => $model->getPrimaryKey(), 
             'returnUrl' => classic_uri_string()
@@ -23,7 +23,7 @@ $event->columns[] = [
 ];
 
 $event->columns[] = [
-    'content' => PHPTheme::widget('tableButtonDelete', [
+    'content' => admin_theme_widget('tableButtonDelete', [
         'url' => classic_url('admin/block/delete', [
             'id' => $model->getPrimaryKey(), 
             'returnUrl' => classic_uri_string()
@@ -32,4 +32,4 @@ $event->columns[] = [
     'preset' => 'button'
 ];
 
-echo PHPTheme::widget('tableRow', ['columns' => $event->columns]);
+echo admin_theme_widget('tableRow', ['columns' => $event->columns]);
