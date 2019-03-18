@@ -50,5 +50,4 @@ Events::on('install', function()
 	PageModel::install();
 	BlockModel::install();
 	MenuModel::install();
-	MenuItemModel::install();
 });

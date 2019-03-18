@@ -6,6 +6,8 @@
  */
 namespace BasicApp\Site\Models;
 
+use Config\Database;
+
 abstract class BaseMenuModel extends \BasicApp\Core\Model
 {
 
