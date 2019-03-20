@@ -14,7 +14,7 @@ class Migration_menu_item_add_link_html_class_column extends Migration
         $this->forge->addColumn($this->tableName, [
             'link_html_class' => [
                 'type' => 'VARCHAR',
-                'constraint' => 255
+                'constraint' => 255,
                 'default' => null
             ]
         ]);
