@@ -27,4 +27,8 @@ abstract class BaseMenuItem extends \BasicApp\Core\Entity
 
 	public $item_sort = null;
 
+    public $item_link_html_class;
+
+    public $item_icon_html_class;
+
 }

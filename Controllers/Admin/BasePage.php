@@ -2,7 +2,7 @@
 
 namespace BasicApp\Site\Controllers\Admin;
 
-use BasicApp\Site\Models\PageModel;
+use BasicApp\Site\Models\Admin\PageModel;
 
 abstract class BasePage extends \BasicApp\Core\AdminCrudController
 {

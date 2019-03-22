@@ -21,6 +21,20 @@ echo admin_theme_widget('formFieldText', [
     'error' => array_key_exists('item_sort', $errors) ? $errors['item_sort'] : null
 ]);
 
+echo admin_theme_widget('formFieldText', [
+    'name'  => 'item_link_html_class',
+    'value' => $model->item_link_html_class,
+    'label' => $model->fieldLabel('item_link_html_class'),
+    'error' => array_key_exists('item_link_html_class', $errors) ? $errors['item_link_html_class'] : null
+]);
+
+echo admin_theme_widget('formFieldText', [
+    'name'  => 'item_icon_html_class',
+    'value' => $model->item_icon_html_class,
+    'label' => $model->fieldLabel('item_icon_html_class'),
+    'error' => array_key_exists('item_icon_html_class', $errors) ? $errors['item_icon_html_class'] : null
+]);
+
 echo admin_theme_widget('formErrors', ['errors' => $errors]);
 
 echo admin_theme_widget('formButton', ['type' => 'submit', 'label' => $model->item_id ? t('admin', 'Update') : t('admin', 'Insert')]);

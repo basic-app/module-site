@@ -2,7 +2,7 @@
 
 namespace BasicApp\Site\Controllers\Admin;
 
-use BasicApp\Site\Models\MenuItemModel;
+use BasicApp\Site\Models\Admin\MenuItemModel;
 
 abstract class BaseMenuItem extends \BasicApp\Core\AdminCrudController
 {

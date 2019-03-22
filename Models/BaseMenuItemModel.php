@@ -15,39 +15,16 @@ abstract class BaseMenuItemModel extends \BasicApp\Core\Model
 
     protected $returnType = MenuItem::class;
 
-    protected $allowedFields = ['item_name', 'item_url', 'item_html_class', 'item_menu_id', 'item_sort'];
-
-	protected $validationRules = [
-		'item_name' => 'trim|required|max_length[255]',
-		'item_url' => 'trim|required|max_length[255]',
-		'item_html_class' => 'trim|max_length[255]',
-		'item_sort' => 'trim'
-	];
-
 	protected static $fieldLabels = [
 		'item_id' => 'ID',
         'item_name' => 'Name',
 		'item_url' => 'Url',
 		'item_sort' => 'Sort',
 		'item_created_at' => 'Created At',
-		'item_updated_at' => 'Updated At'
+		'item_updated_at' => 'Updated At',
+        'item_link_html_class' => 'Link HTML Class',
+        'item_icon_html_class' => 'Icon HTML Class'
 	];
-
-	public function validate($data) : bool
-	{
-		$validationRules = $this->validationRules;
-
-		if (!empty($data['item_sort']))
-		{
-			$this->validationRules['item_sort'] .= '|is_natural';
-		}
-
-		$return = parent::validate($data);
-
-		$this->validationRules = $validationRules;
-
-		return $return;
-	}
 
 	public function save($values)
 	{

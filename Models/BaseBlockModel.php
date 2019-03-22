@@ -13,16 +13,6 @@ abstract class BaseBlockModel extends \BasicApp\Core\Model
 
 	protected $primaryKey = 'block_id';
 
-	protected $allowedFields = [
-		'block_uid',
-		'block_content'
-	];
-
-	protected $validationRules = [
-		'block_uid' => 'trim|required|max_length[255]|required',
-		'block_content' => 'trim|max_length[65535]'
-	];
-
 	protected static $fieldLabels = [
 		'block_id' => 'ID',
 		'block_uid' => 'UID',
@@ -68,18 +58,6 @@ abstract class BaseBlockModel extends \BasicApp\Core\Model
 		$class = static::class;
 
 		return (new $class)->like('block_uid', $prefix . '.', 'left')->findAll();
-	}
-
-	public static function install()
-	{
-		static $installed = false;
-
-		if ($installed)
-		{
-			return;
-		}
-
-		$installed = true;
 	}
 
 }

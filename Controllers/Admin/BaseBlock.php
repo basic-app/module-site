@@ -2,7 +2,7 @@
 
 namespace BasicApp\Site\Controllers\Admin;
 
-use BasicApp\Site\Models\BlockModel;
+use BasicApp\Site\Models\Admin\BlockModel;
 
 abstract class BaseBlock extends \BasicApp\Core\AdminCrudController
 {

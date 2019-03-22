@@ -25,11 +25,6 @@ abstract class BasePage extends \BasicApp\Core\Entity
 
 	protected $page_published = 1;
 
-	public function getFormattedPublished()
-	{
-		return $this->page_published ? t('attribute', 'Published') : t('attribute', 'Not Published');
-	}
-
     public function setMetaTags($view = null)
     {
         PageModel::pageSetMetaTags($this, $view);
