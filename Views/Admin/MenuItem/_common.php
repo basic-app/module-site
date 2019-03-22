@@ -17,5 +17,5 @@ $this->data['breadcrumbs'][] = ['label' => $this->data['title'], 'url' => site_u
 
 $this->data['breadcrumbs'][] = [
 	'label' => $parent->menu_name, 
-	'url' => classic_url('admin/menuItem', ['parentId' => $parent->menu_id])
+	'url' => classic_url('admin/menu-item', ['parentId' => $parent->menu_id])
 ];
