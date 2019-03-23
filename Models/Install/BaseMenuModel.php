@@ -7,8 +7,8 @@
 namespace BasicApp\Site\Models\Install;
 
 use Config\Database;
-use Modules\Site\Models\MenuModel;
-use Modules\Site\Models\MenuItemModel;
+use BasicApp\Site\Models\MenuModel;
+use BasicApp\Site\Models\MenuItemModel;
 
 abstract class BaseMenuModel
 {
