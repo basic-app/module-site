@@ -24,9 +24,9 @@ abstract class BaseMenuModel
 
         $db = Database::connect();
 
-        $count = $db->table('menu')->countAllResults();
+        //$count = $db->table('menu')->countAllResults();
 
-        if ($count == 0)
+        if (!MenuModel::getMenu('main', false))
         {
             $mainMenu = MenuModel::getMenu('main', true, ['menu_name' => 'Main Menu']);
 
