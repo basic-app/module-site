@@ -4,15 +4,15 @@ namespace BasicApp\Site\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class Migration_menu_item_add_link_html_class_column extends Migration
+class Migration_menu_add_default_item_link_class_column extends Migration
 {
 
-    public $tableName = 'menu_item';
+    public $tableName = 'menu';
 
     public function up()
     {
         $this->forge->addColumn($this->tableName, [
-            'link_html_class' => [
+            'menu_default_item_link_class' => [
                 'type' => 'VARCHAR',
                 'constraint' => 255,
                 'default' => null
@@ -22,7 +22,7 @@ class Migration_menu_item_add_link_html_class_column extends Migration
 
     public function down()
     {
-        $this->forge->dropColumn($this->tableName, 'link_html_class');
+        $this->forge->dropColumn($this->tableName, 'menu_default_item_link_class');
     }
 
 }

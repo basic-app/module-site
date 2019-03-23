@@ -23,12 +23,16 @@ abstract class BaseMenuItem extends \BasicApp\Core\Entity
 
 	public $item_menu_id;
 
-	public $item_html_class;
-
 	public $item_sort = null;
 
-    public $item_link_html_class;
+    public $item_class;
 
-    public $item_icon_html_class;
+    public $item_link_class;
+
+    public $item_icon;
+
+    public $item_uid;
+
+    public $item_enabled;
 
 }

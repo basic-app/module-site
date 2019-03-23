@@ -9,7 +9,8 @@ $event->columns = [
     ['preset' => 'medium', 'content' => $model->item_created_at],
     ['preset' => 'small', 'content' => $model->item_url],
     ['preset' => 'primary', 'content' => $model->item_name],
-    ['preset' => 'small', 'content' => $model->item_sort]
+    ['preset' => 'small', 'content' => $model->item_sort],
+    ['content' => $model->item_enabled ? t('admin', 'Enabled') : t('admin', 'Disabled')]
 ];
 
 Events::trigger('admin_menu_item_table_row', $event);

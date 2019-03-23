@@ -33,7 +33,8 @@ $event->columns = [
     ['content' => MenuItemModel::fieldLabel('item_created_at'), 'preset' => 'medium'],
     ['content' => MenuItemModel::fieldLabel('item_url'), 'preset' => 'small'],
     ['content' => MenuItemModel::fieldLabel('item_name')],
-    ['content' => MenuItemModel::fieldLabel('item_sort'), 'preset' => 'small']
+    ['content' => MenuItemModel::fieldLabel('item_sort'), 'preset' => 'small'],
+    ['content' => MenuItemModel::fieldLabel('item_enabled')]
 ];
 
 Events::trigger('admin_menu_item_table_head', $event);

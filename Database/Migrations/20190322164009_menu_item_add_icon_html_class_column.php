@@ -22,7 +22,7 @@ class Migration_menu_item_add_icon_html_class_column extends Migration
 
     public function down()
     {
-       $this->forge->dropColumn($this->tableName, 'item_icon_html_class');
+        $this->forge->dropColumn($this->tableName, 'item_icon_html_class');
     }
 
 }

@@ -21,4 +21,10 @@ abstract class BaseMenu extends \BasicApp\Core\Entity
 
 	public $menu_name;
 
+    public $menu_default_item_icon;
+
+    public $menu_default_item_class;
+
+    public $menu_default_item_link_class;
+
 }

@@ -15,6 +15,13 @@ echo admin_theme_widget('formFieldText', [
 ]);
 
 echo admin_theme_widget('formFieldText', [
+    'name'  => 'item_uid',
+    'value' => $model->item_uid,
+    'label' => $model->fieldLabel('item_uid'),
+    'error' => array_key_exists('item_uid', $errors) ? $errors['item_uid'] : null
+]);
+
+echo admin_theme_widget('formFieldText', [
     'name'  => 'item_sort',
     'value' => $model->item_sort,
     'label' => $model->fieldLabel('item_sort'),
@@ -22,17 +29,31 @@ echo admin_theme_widget('formFieldText', [
 ]);
 
 echo admin_theme_widget('formFieldText', [
-    'name'  => 'item_link_html_class',
-    'value' => $model->item_link_html_class,
-    'label' => $model->fieldLabel('item_link_html_class'),
-    'error' => array_key_exists('item_link_html_class', $errors) ? $errors['item_link_html_class'] : null
+    'name'  => 'item_class',
+    'value' => $model->item_class,
+    'label' => $model->fieldLabel('item_class'),
+    'error' => array_key_exists('item_class', $errors) ? $errors['item_class'] : null
 ]);
 
 echo admin_theme_widget('formFieldText', [
-    'name'  => 'item_icon_html_class',
-    'value' => $model->item_icon_html_class,
-    'label' => $model->fieldLabel('item_icon_html_class'),
-    'error' => array_key_exists('item_icon_html_class', $errors) ? $errors['item_icon_html_class'] : null
+    'name'  => 'item_link_class',
+    'value' => $model->item_link_class,
+    'label' => $model->fieldLabel('item_link_class'),
+    'error' => array_key_exists('item_link_class', $errors) ? $errors['item_link_class'] : null
+]);
+
+echo admin_theme_widget('formFieldText', [
+    'name'  => 'item_icon',
+    'value' => $model->item_icon,
+    'label' => $model->fieldLabel('item_icon'),
+    'error' => array_key_exists('item_icon', $errors) ? $errors['item_icon'] : null
+]);
+
+echo admin_theme_widget('formFieldCheckbox', [
+    'name'  => 'item_enabled',
+    'value' => $model->item_enabled,
+    'label' => $model->fieldLabel('item_enabled'),
+    'error' => array_key_exists('item_enabled', $errors) ? $errors['item_enabled'] : null
 ]);
 
 echo admin_theme_widget('formErrors', ['errors' => $errors]);

@@ -14,18 +14,24 @@ abstract class BaseMenuItemModel extends \BasicApp\Site\Models\MenuItemModel
     protected $allowedFields = [
         'item_name', 
         'item_url', 
-        'item_link_html_class', 
-        'item_icon_html_class',
+        'item_link_class',
+        'item_class', 
+        'item_icon',
         'item_menu_id', 
-        'item_sort'
+        'item_sort',
+        'item_uid',
+        'item_enabled'
     ];
 
 	protected $validationRules = [
 		'item_name' => 'trim|max_length[255]|required',
 		'item_url' => 'trim|max_length[255]|required',
-		'item_link_html_class' => 'trim|max_length[255]',
-        'item_icon_html_class' => 'trim|max_length[255]',
-		'item_sort' => 'trim'
+		'item_link_class' => 'trim|max_length[255]',
+        'item_icon' => 'trim|max_length[255]',
+        'item_class' => 'trim|max_length[255]',
+		'item_sort' => 'trim',
+        'item_enabled' => 'trim|required|is_natural',
+        'item_uid' => 'trim|max_length[255]'
 	];
 
 	public function validate($data) : bool

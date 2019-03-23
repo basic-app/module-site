@@ -43,9 +43,7 @@ class Migration_create_menu_table extends Migration
 
 		$this->forge->addKey('menu_id', true);
 
-		$this->forge->createTable($this->tableName, false, [
-			'ENGINE' => 'InnoDB',
-		]);	
+		$this->forge->createTable($this->tableName, false, ['ENGINE' => 'InnoDB']);	
 	}
 
 	public function down()
