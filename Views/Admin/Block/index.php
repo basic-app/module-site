@@ -26,9 +26,9 @@ foreach($elements as $model)
 $event = new StdClass;
 
 $event->columns = [
-    ['content' => BlockModel::fieldLabel('block_id'), 'preset' => 'id small'],
-    ['content' => BlockModel::fieldLabel('block_created_at'), 'preset' => 'medium'],
-    ['content' => BlockModel::fieldLabel('block_uid')]
+    ['content' => BlockModel::label('block_id'), 'preset' => 'id small'],
+    ['content' => BlockModel::label('block_created_at'), 'preset' => 'medium'],
+    ['content' => BlockModel::label('block_uid')]
 ];
 
 Events::trigger('admin_block_table_head', $event);

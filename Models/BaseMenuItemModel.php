@@ -15,19 +15,21 @@ abstract class BaseMenuItemModel extends \BasicApp\Core\Model
 
     protected $returnType = MenuItem::class;
 
-	protected static $fieldLabels = [
+	protected $labels = [
 		'item_id' => 'ID',
         'item_name' => 'Name',
 		'item_url' => 'Url',
 		'item_sort' => 'Sort',
 		'item_created_at' => 'Created At',
 		'item_updated_at' => 'Updated At',
-        'item_link_class' => 'Link Class',
+        'item_link_class' => 'Link HTML Class',
         'item_icon' => 'Icon',
-        'item_class' => 'Container Class',
+        'item_class' => 'Container HTML Class',
         'item_uid' => 'UID',
         'item_enabled' => 'Enabled'
 	];
+
+    protected $translations = 'menu-item';
 
 	public function save($values)
 	{

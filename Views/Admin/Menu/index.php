@@ -29,10 +29,10 @@ foreach($elements as $model)
 $event = new StdClass;
 
 $event->columns = [
-    ['content' => MenuModel::fieldLabel('menu_id'), 'preset' => 'id small'],
-    ['content' => MenuModel::fieldLabel('menu_created_at'), 'preset' => 'medium'],
-    ['content' => MenuModel::fieldLabel('menu_uid'), 'preset' => 'small'],
-    ['content' => MenuModel::fieldLabel('menu_name')],
+    ['content' => MenuModel::label('menu_id'), 'preset' => 'id small'],
+    ['content' => MenuModel::label('menu_created_at'), 'preset' => 'medium'],
+    ['content' => MenuModel::label('menu_uid'), 'preset' => 'small'],
+    ['content' => MenuModel::label('menu_name')],
     ['content' => '&nbsp;']
 ];
 

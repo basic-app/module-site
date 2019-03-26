@@ -13,13 +13,15 @@ abstract class BaseBlockModel extends \BasicApp\Core\Model
 
 	protected $primaryKey = 'block_id';
 
-	protected static $fieldLabels = [
+	protected $labels = [
 		'block_id' => 'ID',
 		'block_uid' => 'UID',
 		'block_content' => 'Content',
 		'block_created_at' => 'Created',
 		'block_updated_at' => 'Updated'
 	];
+
+    protected $translations = 'blocks';
 
 	protected $returnType = Block::class;
 
@@ -28,8 +30,6 @@ abstract class BaseBlockModel extends \BasicApp\Core\Model
 	protected $createdField = 'block_created_at';
 
 	protected $updatedField = 'block_updated_at';
-
-	protected $uidField = 'block_uid';
 
     public static function getBlock(string $uid, bool $create = true, array $params = [])
     {

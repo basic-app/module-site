@@ -26,11 +26,11 @@ foreach($elements as $model)
 $event = new StdClass;
 
 $event->columns = [
-    ['content' => PageModel::fieldLabel('page_id'), 'preset' => 'id small'],
-    ['content' => PageModel::fieldLabel('page_created_at'), 'preset' => 'medium'],
-    ['content' => PageModel::fieldLabel('page_url'), 'preset' => 'small'],
-    ['content' => PageModel::fieldLabel('page_name')],
-    ['content' => PageModel::fieldLabel('page_published'), 'preset' => 'large']
+    ['content' => PageModel::label('page_id'), 'preset' => 'id small'],
+    ['content' => PageModel::label('page_created_at'), 'preset' => 'medium'],
+    ['content' => PageModel::label('page_url'), 'preset' => 'small'],
+    ['content' => PageModel::label('page_name')],
+    ['content' => PageModel::label('page_published'), 'preset' => 'large']
 ];
 
 Events::trigger('admin_page_table_head', $event);

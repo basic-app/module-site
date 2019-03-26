@@ -16,7 +16,7 @@ abstract class BasePageModel extends \BasicApp\Core\Model
 
 	protected $primaryKey = 'page_id';
 
-	protected static $fieldLabels = [
+	protected $labels = [
 		'page_id' => 'ID',
 		'page_url' => 'URL',
 		'page_name' => 'Name',
@@ -25,6 +25,8 @@ abstract class BasePageModel extends \BasicApp\Core\Model
 		'page_text' => 'Text',
 		'page_published' => 'Publication'
 	];
+
+    protected $translations = 'pages';
 
 	protected $returnType = Page::class;
 
