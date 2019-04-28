@@ -31,7 +31,7 @@ abstract class BaseMenuItemModel extends \BasicApp\Core\Model
 
     protected $translations = 'menu-item';
 
-	public function save($values)
+	public function save($values) : bool
 	{
         if (!$values->item_uid)
         {
