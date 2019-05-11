@@ -12,7 +12,9 @@ $event->columns = [
     [
         'type' => 'link', 
         'label' => t('admin.menu', 'Items'), 
-        'url' => classic_url('admin/menu-item', ['parentId' => $model->getPrimaryKey()])
+        'url' => classic_url('admin/menu-item', [
+            'item_menu_id' => $model->getPrimaryKey()
+        ])
     ]
 ];
 

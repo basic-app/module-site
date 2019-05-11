@@ -9,7 +9,7 @@ unset($this->data['breadcrumbs'][count($this->data['breadcrumbs']) - 1]['url']);
 
 $this->data['actionMenu'][] = [
 	'url' => classic_url('admin/menu-item/create', [
-        'parentId' => $parentId,
+        'item_menu_id' => $parentId,
 		'returnUrl' => classic_uri_string()
 	]),
 	'label' => t('admin', 'Create'), 

@@ -2,9 +2,7 @@
 
 namespace BasicApp\Site\Database\Migrations;
 
-use CodeIgniter\Database\Migration;
-
-class Migration_create_menu_item_table extends Migration
+class Migration_create_menu_item_table extends \BasicApp\Core\Migration
 {
 
 	public $tableName = 'menu_item';
@@ -12,43 +10,13 @@ class Migration_create_menu_item_table extends Migration
 	public function up()
 	{
 		$this->forge->addField([
-			'item_id' => [
-				'type' => 'INT',
-				'constraint' => 11,
-				'unsigned' => true,
-				'auto_increment' => true
-			],
-			'item_created_at' => [
-				'type' => 'TIMESTAMP DEFAULT CURRENT_TIMESTAMP',
-				'null' => true
-			],
-			'item_updated_at' => [
-				'type' => 'TIMESTAMP NULL',
-				'default' => null
-			],
-			'item_menu_id' => [
-				'type' => 'INT',
-				'constraint' => 11,
-				'unsigned' => true,
-				'null' => true,
-				'default' => null
-			],
-			'item_name' => [
-				'type' => 'VARCHAR',
-				'constraint' => 255,
-				'null' => true
-			],
-			'item_url' => [
-				'type' => 'VARCHAR',
-				'constraint' => 255,
-				'null' => true
-			],			
-			'item_sort' => [
-				'type' => 'INT',
-				'constraint' => '11',
-				'unsigned' => true,
-				'null' => true
-			]
+			'item_id' => $this->primaryColumn(),
+			'item_created_at' => $this->createdColumn(),
+			'item_updated_at' => $this->updatedColumn(),
+			'item_menu_id' => $this->foreignColumn(),
+			'item_name' => $this->stringColumn(),
+			'item_url' => $this->stringColumn(),
+			'item_sort' => $this->sortColumn()
 		]);
 
 		$this->forge->addKey('item_id', true);

@@ -2,9 +2,7 @@
 
 namespace BasicApp\Site\Database\Migrations;
 
-use CodeIgniter\Database\Migration;
-
-class Migration_menu_add_default_item_class_column extends Migration
+class Migration_menu_add_default_item_class_column extends \BasicApp\Core\Migration
 {
 
     public $tableName = 'menu';
@@ -12,11 +10,7 @@ class Migration_menu_add_default_item_class_column extends Migration
     public function up()
     {
         $this->forge->addColumn($this->tableName, [
-            'menu_default_item_class' => [
-                'type' => 'VARCHAR',
-                'constraint' => 255,
-                'default' => null
-            ]
+            'menu_default_item_class' => $this->stringColumn()
         ]);
     }
 

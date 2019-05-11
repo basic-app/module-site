@@ -2,9 +2,7 @@
 
 namespace BasicApp\Site\Database\Migrations;
 
-use CodeIgniter\Database\Migration;
-
-class Migration_menu_item_add_enabled_column extends Migration
+class Migration_menu_item_add_enabled_column extends \BasicApp\Core\Migration
 {
 
     public $tableName = 'menu_item';
@@ -12,13 +10,7 @@ class Migration_menu_item_add_enabled_column extends Migration
     public function up()
     {
         $this->forge->addColumn($this->tableName, [
-            'item_enabled' => [
-                'type' => 'TINYINT',
-                'constraint' => 1,
-                'unsigned' => true,
-                'default' => 1,
-                'null' => false
-            ]
+            'item_enabled' => $this->booleanColumn()
         ]);
     }
 

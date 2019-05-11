@@ -2,9 +2,7 @@
 
 namespace BasicApp\Site\Database\Migrations;
 
-use CodeIgniter\Database\Migration;
-
-class Migration_menu_item_add_icon_html_class_column extends Migration
+class Migration_menu_item_add_icon_html_class_column extends \BasicApp\Core\Migration
 {
 
     public $tableName = 'menu_item';
@@ -12,11 +10,7 @@ class Migration_menu_item_add_icon_html_class_column extends Migration
     public function up()
     {
         $this->forge->addColumn($this->tableName, [
-            'item_icon_html_class' => [
-                'type' => 'VARCHAR',
-                'constraint' => 255,
-                'default' => null
-            ]
+            'item_icon_html_class' => $this->stringColumn()
         ]);
     }
 

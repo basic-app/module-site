@@ -2,25 +2,21 @@
 
 namespace BasicApp\Site\Database\Migrations;
 
-use CodeIgniter\Database\Migration;
-
-class Migration_menu_item_create_item_enabled_index extends Migration
+class Migration_menu_item_create_item_enabled_index extends \BasicApp\Core\Migration
 {
 
     public $tableName = 'menu_item';
 
+    public $keyName = 'menu_item';
+
     public function up()
     {
-        $sql = 'ALTER TABLE `' . $this->tableName . '` ADD INDEX `menu_item_item_enabled_index`(`item_enabled`);';
-
-        $this->db->query($sql);
+        $this->tableAddKey($this->tableName, $this->keyName . '_item_enabled_index', ['item_enabled'], false, true);
     }
 
     public function down()
     {
-        $sql = 'ALTER TABLE `' . $this->tableName . '` DROP INDEX `menu_item_item_enabled_index`;';
-
-        $this->db->query($sql);
+        $this->tableDropKey($this->tableName, $this->keyName . '_item_enabled_index');
     }
 
 }
