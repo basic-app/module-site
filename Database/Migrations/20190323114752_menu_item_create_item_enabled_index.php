@@ -7,8 +7,6 @@ class Migration_menu_item_create_item_enabled_index extends \BasicApp\Core\Migra
 
     public $tableName = 'menu_item';
 
-    public $keyName = 'menu_item';
-
     public function up()
     {
         $this->tableAddKey($this->tableName, ['item_enabled'], false, true);
