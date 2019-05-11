@@ -5,7 +5,7 @@ namespace BasicApp\Site\Database\Migrations;
 class Migration_create_blocks_table extends \BasicApp\Core\Migration
 {
 
-e	public $tableName = 'blocks';
+	public $tableName = 'blocks';
 
 	public function up()
 	{
