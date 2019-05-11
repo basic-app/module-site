@@ -33,19 +33,28 @@ abstract class BaseMenuModel
             MenuItemModel::getEntity(
                 ['item_menu_id' => $mainMenu->menu_id, 'item_url' => '/'], 
                 true, 
-                ['item_name' => 'Index']
+                [
+                    'item_name' => 'Index',
+                    'item_enabled' => 1
+                ]
             );
 
             MenuItemModel::getEntity(
                 ['item_menu_id' => $mainMenu->menu_id, 'item_url' => '/blog'], 
                 true, 
-                ['item_name' => 'Blog']
+                [
+                    'item_name' => 'Blog',
+                    'item_enabled' => 1
+                ]
             );
 
             MenuItemModel::getEntity(
                 ['item_menu_id' => $mainMenu->menu_id, 'item_url' => '/page/about'], 
                 true, 
-                ['item_name' => 'About']
+                [
+                    'item_name' => 'About',
+                    'item_enabled' => 1
+                ]
             );
         }
 
