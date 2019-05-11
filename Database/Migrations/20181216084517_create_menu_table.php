@@ -10,7 +10,7 @@ class Migration_create_menu_table extends \BasicApp\Core\Migration
 	public function up()
 	{
 		$this->forge->addField([
-			'menu_id' => $this->primaryKey(),
+			'menu_id' => $this->primaryColumn(),
 			'menu_created_at' => $this->createdColumn(),
 			'menu_updated_at' => $this->updatedColumn(),
 			'menu_uid' => $this->stringColumn(['unique' => true]),
