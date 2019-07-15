@@ -2,15 +2,15 @@
 
 use CodeIgniter\Events\Events;
 use BasicApp\Site\Models\MenuItemModel;
+use BasicApp\Helpers\Url;
 
 require __DIR__ . '/_common.php';
 
 unset($this->data['breadcrumbs'][count($this->data['breadcrumbs']) - 1]['url']);
 
 $this->data['actionMenu'][] = [
-	'url' => classic_url('admin/menu-item/create', [
-        'item_menu_id' => $parentId,
-		'returnUrl' => classic_uri_string()
+	'url' => Url::returnUrl('admin/menu-item/create', [
+        'item_menu_id' => $parentId
 	]),
 	'label' => t('admin', 'Create'), 
 	'icon' => 'fa fa-plus',

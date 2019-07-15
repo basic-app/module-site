@@ -4,7 +4,7 @@ namespace BasicApp\Site\Controllers\Admin;
 
 use BasicApp\Site\Models\Admin\MenuModel;
 
-abstract class BaseMenu extends \BasicApp\Core\AdminCrudController
+abstract class BaseMenu extends \BasicApp\Admin\AdminCrudController
 {
 
 	protected $modelClass = MenuModel::class;

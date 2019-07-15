@@ -4,7 +4,7 @@ namespace BasicApp\Site\Controllers\Admin;
 
 use BasicApp\Site\Models\Admin\BlockModel;
 
-abstract class BaseBlock extends \BasicApp\Core\AdminCrudController
+abstract class BaseBlock extends \BasicApp\Admin\AdminCrudController
 {
 
 	protected $modelClass = BlockModel::class;

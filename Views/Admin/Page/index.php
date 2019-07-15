@@ -2,13 +2,14 @@
 
 use CodeIgniter\Events\Events;
 use BasicApp\Site\Models\PageModel;
+use BasicApp\Helpers\Url;
 
 require __DIR__ . '/_common.php';
 
 unset($this->data['breadcrumbs'][count($this->data['breadcrumbs']) - 1]['url']);
 
 $this->data['actionMenu'][] = [
-	'url' => classic_url('admin/page/create', ['returnUrl' => 'admin/page']), 
+	'url' => Url::returnUrl('admin/page/create'), 
 	'label' => t('admin.menu', 'Add Page'), 
 	'icon' => 'fa fa-plus',
 	'linkOptions' => [

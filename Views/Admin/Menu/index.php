@@ -4,12 +4,12 @@ require __DIR__ . '/_common.php';
 
 use CodeIgniter\Events\Events;
 use BasicApp\Site\Models\MenuModel;
+use BasicApp\Helpers\Url;
 
 unset($this->data['breadcrumbs'][count($this->data['breadcrumbs']) - 1]['url']);
 
 $this->data['actionMenu'][] = [
-	'url' => classic_url('admin/menu/create', [
-		'returnUrl' => classic_uri_string(),
+	'url' => Url::returnUrl('admin/menu/create', [
 		'link_user_id' => $parentId
 	]),
 	'label' => t('admin', 'Create'), 

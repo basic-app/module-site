@@ -4,7 +4,7 @@ namespace BasicApp\Site\Controllers\Admin;
 
 use BasicApp\Site\Models\Admin\PageModel;
 
-abstract class BasePage extends \BasicApp\Core\AdminCrudController
+abstract class BasePage extends \BasicApp\Admin\AdminCrudController
 {
 
 	protected $modelClass = PageModel::class;

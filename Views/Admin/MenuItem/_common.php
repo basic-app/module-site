@@ -1,6 +1,7 @@
 <?php
 
 use BasicApp\Site\Models\MenuModel;
+use BasicApp\Helpers\Url;
 
 $this->data['title'] = t('admin.menu', 'Menu');
 
@@ -17,7 +18,7 @@ $this->data['breadcrumbs'][] = ['label' => $this->data['title'], 'url' => site_u
 
 $this->data['breadcrumbs'][] = [
 	'label' => $parent->menu_name, 
-	'url' => classic_url('admin/menu-item', [
+	'url' => Url::createUrl('admin/menu-item', [
         'item_menu_id' => $parent->menu_id
     ])
 ];

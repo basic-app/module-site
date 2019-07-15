@@ -1,6 +1,7 @@
 <?php
 
 use CodeIgniter\Events\Events;
+use BasicApp\Helpers\Url;
 
 $event = new StdClass;
 
@@ -12,7 +13,7 @@ $event->columns = [
     [
         'type' => 'link', 
         'label' => t('admin.menu', 'Items'), 
-        'url' => classic_url('admin/menu-item', [
+        'url' => Url::createUrl('admin/menu-item', [
             'item_menu_id' => $model->getPrimaryKey()
         ])
     ]
@@ -22,9 +23,8 @@ Events::trigger('admin_menu_table_row', $event);
 
 $event->columns[] = [
     'content' => admin_theme_widget('tableButtonUpdate', [
-        'url' => classic_url('admin/menu/update', [
-            'id' => $model->getPrimaryKey(), 
-            'returnUrl' => classic_uri_string()
+        'url' => Url::returnUrl('admin/menu/update', [
+            'id' => $model->getPrimaryKey()
         ])
     ]), 
     'preset' => 'button'
@@ -32,9 +32,8 @@ $event->columns[] = [
 
 $event->columns[] = [
     'content' => admin_theme_widget('tableButtonDelete', [
-        'url' => classic_url('admin/menu/delete', [
-            'id' => $model->getPrimaryKey(), 
-            'returnUrl' => classic_uri_string()
+        'url' => Url::returnUrl('admin/menu/delete', [
+            'id' => $model->getPrimaryKey()
         ])
     ]), 
     'preset' => 'button'
