@@ -27,7 +27,7 @@ abstract class BasePage extends \BasicApp\Core\Entity
 
     public function setMetaTags($view = null)
     {
-        PageModel::pageSetMetaTags($this, $view);
+        PageModel::setPageMetaTags($this, $view);
     }
 
 }

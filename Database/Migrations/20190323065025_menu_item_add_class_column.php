@@ -9,14 +9,14 @@ class Migration_menu_item_add_class_column extends \BasicApp\Core\Migration
 
     public function up()
     {
-        $this->forge->addColumn($this->tableName, [
+        $this->createColumn($this->tableName, [
             'item_class' => $this->stringColumn()
         ]);
     }
 
     public function down()
     {
-       $this->forge->dropColumn($this->tableName, 'item_class');
+       $this->dropColumn($this->tableName, 'item_class');
     }
 
 }

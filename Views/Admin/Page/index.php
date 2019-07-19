@@ -10,39 +10,38 @@ unset($this->data['breadcrumbs'][count($this->data['breadcrumbs']) - 1]['url']);
 
 $this->data['actionMenu'][] = [
 	'url' => Url::returnUrl('admin/page/create'), 
-	'label' => t('admin.menu', 'Add Page'), 
+	'label' => t('admin', 'Create'), 
 	'icon' => 'fa fa-plus',
 	'linkOptions' => [
 		'class' => 'btn btn-success'
 	]
 ];
 
-$rows = [];
+$adminTheme = service('adminTheme');
 
-foreach($elements as $model)
-{
-    $rows[] = app_view('BasicApp\Site\Admin\Page\_row', ['model' => $model]);
-}
+echo $adminTheme->table([
+    'rows' => $elements,
+    'columns' => function($model) {
 
-$event = new StdClass;
+        if (!$model)
+        {
+            $model = PageModel::createEntity();
+        }
 
-$event->columns = [
-    ['content' => PageModel::label('page_id'), 'preset' => 'id small'],
-    ['content' => PageModel::label('page_created_at'), 'preset' => 'medium'],
-    ['content' => PageModel::label('page_url'), 'preset' => 'small'],
-    ['content' => PageModel::label('page_name')],
-    ['content' => PageModel::label('page_published'), 'preset' => 'large']
-];
-
-Events::trigger('admin_page_table_head', $event);
-
-$event->columns[] = ['options' => ['colspan' => 2]];
-
-echo admin_theme_widget('table', [
-    'head' => [
-        'columns' => $event->columns
-    ],
-    'rows' => $rows
+        return [
+            $this->createColumn(['attribute' => 'page_id'])->displaySmall(),
+            $this->createColumn(['attribute' => 'page_created_at'])->displayMedium(),
+            $this->createColumn(['attribute' => 'page_url'])->displaySmall(),
+            $this->createColumn(['attribute' => 'page_name']),
+            $this->createBooleanColumn(['attribute' => 'page_published'])->displayLarge(),
+            $this->createUpdateLinkColumn([
+                'url' => Url::returnUrl('admin/page/update', ['id' => $model->getPrimaryKey()])
+            ]),
+            $this->createDeleteLinkColumn([
+                'url' => Url::returnUrl('admin/page/delete', ['id' => $model->getPrimaryKey()])
+            ])
+        ];
+    }
 ]);
 
 if ($pager)

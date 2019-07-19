@@ -9,14 +9,14 @@ class Migration_menu_add_default_item_link_class_column extends \BasicApp\Core\M
 
     public function up()
     {
-        $this->forge->addColumn($this->tableName, [
+        $this->createColumn($this->tableName, [
             'menu_default_item_link_class' => $this->stringColumn()
         ]);
     }
 
     public function down()
     {
-        $this->forge->dropColumn($this->tableName, 'menu_default_item_link_class');
+        $this->dropColumn($this->tableName, 'menu_default_item_link_class');
     }
 
 }

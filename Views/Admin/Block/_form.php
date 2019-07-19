@@ -1,20 +1,23 @@
 <?php
 
-echo admin_theme_widget('formFieldText', [
-    'name' => 'block_uid',
-    'value' => $model->block_uid,
-    'label' => $model->label('block_uid'),
-    'errors' => array_key_exists('block_uid', $errors) ? $errors['block_uid'] : null
-]);
+use BasicApp\Helpers\Url;
 
-echo admin_theme_widget('formFieldTextarea', [
-    'preset' => 'code',
-    'name' => 'block_content',
-    'value' => $model->block_content,
-    'label' => $model->label('block_content'),
-    'error' => array_key_exists('block_content', $errors) ? $errors['block_content'] : null
-]);
+$adminTheme = service('adminTheme');
 
-echo admin_theme_widget('formErrors', ['errors' => $errors]);
+$form = $adminTheme->createForm(['model' => $model, 'errors' => $errors]);
 
-echo admin_theme_widget('formButton', ['type' => 'submit', 'label' => $model->block_id ? t('admin', 'Update') : t('admin', 'Insert')]);
+$url = Url::currentUrl();
+
+echo $form->formOpen($url);
+
+echo $form->input('block_uid');
+
+echo $form->codeTextarea('block_content');
+
+echo $form->renderErrors();
+
+$label = $model->getPrimaryKey() ? t('admin', 'Update') : t('admin', 'Insert');
+
+echo $form->submit($label);
+
+echo $form->formClose();

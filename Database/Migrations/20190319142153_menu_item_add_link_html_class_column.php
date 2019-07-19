@@ -9,14 +9,14 @@ class Migration_menu_item_add_link_html_class_column extends \BasicApp\Core\Migr
 
     public function up()
     {
-        $this->forge->addColumn($this->tableName, [
+        $this->createColumn($this->tableName, [
             'link_html_class' => $this->stringColumn()
         ]);
     }
 
     public function down()
     {
-        $this->forge->dropColumn($this->tableName, 'link_html_class');
+        $this->dropColumn($this->tableName, 'link_html_class');
     }
 
 }

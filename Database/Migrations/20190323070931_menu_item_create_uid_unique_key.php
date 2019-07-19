@@ -7,16 +7,14 @@ class Migration_menu_item_create_uid_unique_key extends \BasicApp\Core\Migration
 
     public $tableName = 'menu_item';
 
-    public $columns = ['item_uid', 'item_menu_id'];
-
     public function up()
     {
-        $this->tableAddKey($this->tableName, $this->columns, false, true);
+        $this->createUniqueKey($this->tableName, ['item_uid', 'item_menu_id']);
     }
 
     public function down()
     {
-        $this->tableDropKey($this->tableName, $this->keyName($this->tableName, $this->columns));
+        $this->dropUniqueKey($this->tableName, ['item_uid', 'item_menu_id']);
     }
 
 }

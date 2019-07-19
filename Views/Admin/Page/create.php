@@ -4,15 +4,11 @@ require __DIR__ . '/_common.php';
 
 $this->data['breadcrumbs'][] = ['label' => t('admin', 'Create')];
 
-?>
-<form method="POST" id="admin-page-create-form">
+$this->data['enableCard'] = true;
 
-	<?= admin_theme_widget('card', [
-		'header' => $this->data['title'],
-		'content' => app_view('BasicApp\Site\Admin\Page\_form', [
-			'model' => $model,
-			'errors' => $errors
-		])
-	]);?>
+$this->data['cardTitle'] = $this->data['title'];
 
-</form>
+echo app_view('BasicApp\Site\Admin\Page\_form', [
+    'model' => $model,
+    'errors' => $errors
+]);

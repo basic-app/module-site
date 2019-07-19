@@ -19,33 +19,32 @@ $this->data['actionMenu'][] = [
 	]	
 ];
 
-$rows = [];
+$adminTheme = service('adminTheme');
 
-foreach($elements as $model)
-{
-    $rows[] = app_view('BasicApp\Site\Admin\MenuItem\_row', ['model' => $model]);
-}
+echo $adminTheme->table([
+    'rows' => $elements,
+    'columns' => function($model) {
+       
+        if (!$model)
+        {
+            $model = MenuItemModel::createEntity();
+        }
 
-$event = new StdClass;
-
-$event->columns = [
-    ['content' => MenuItemModel::label('item_id'), 'preset' => 'id small'],
-    ['content' => MenuItemModel::label('item_created_at'), 'preset' => 'medium'],
-    ['content' => MenuItemModel::label('item_url'), 'preset' => 'small'],
-    ['content' => MenuItemModel::label('item_name')],
-    ['content' => MenuItemModel::label('item_sort'), 'preset' => 'small'],
-    ['content' => MenuItemModel::label('item_enabled')]
-];
-
-Events::trigger('admin_menu_item_table_head', $event);
-
-$event->columns[] = ['options' => ['colspan' => 2]];
-
-echo admin_theme_widget('table', [
-    'head' => [
-        'columns' => $event->columns
-    ],
-    'rows' => $rows
+        return [
+            $this->createColumn(['attribute' => 'item_id'])->number()->displaySmall(),
+            $this->createColumn(['attribute' => 'item_created_at'])->displayMedium(),
+            $this->createColumn(['attribute' => 'item_url'])->displaySmall(),
+            $this->createColumn(['attribute' => 'item_name']),
+            $this->createColumn(['attribute' => 'item_sort'])->number(),
+            $this->createBooleanColumn(['attribute' => 'item_enabled']),
+            $this->createUpdateLinkColumn([
+                'url' => Url::returnUrl('admin/menu-item/update', ['id' => $model->getPrimaryKey()])
+            ]),
+            $this->createDeleteLinkColumn([
+                'url' => Url::returnUrl('admin/menu-item/delete', ['id' => $model->getPrimaryKey()])
+            ])
+        ];
+    }
 ]);
 
 if ($pager)

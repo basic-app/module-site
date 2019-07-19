@@ -9,7 +9,7 @@ class Migration_menu_item_rename_link_html_class_column extends \BasicApp\Core\M
 
     public function up()
     {
-        $this->forge->modifyColumn($this->tableName, [
+        $this->modifyColumn($this->tableName, [
             'item_link_html_class' => $this->stringColumn([
                 'name' => 'item_link_class'
             ])
@@ -18,7 +18,7 @@ class Migration_menu_item_rename_link_html_class_column extends \BasicApp\Core\M
 
     public function down()
     {
-        $this->forge->modifyColumn($this->tableName, [
+        $this->modifyColumn($this->tableName, [
             'item_link_class' => $this->stringColumn([
                 'name' => 'item_link_html_class'
             ])

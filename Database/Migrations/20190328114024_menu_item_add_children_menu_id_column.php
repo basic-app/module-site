@@ -11,26 +11,26 @@ class Migration_menu_item_add_children_menu_id_column extends \BasicApp\Core\Mig
 
     public function up()
     {
-        $this->forge->addColumn($this->tableName, [
-            'children_menu_id' => $this->foreignColumn()
+        $this->createColumn($this->tableName, [
+            'children_menu_id' => $this->foreignKeyColumn()
         ]);
     
-        $this->tableAddForeignKey(
+        $this->createForeignKey(
             $this->tableName, 
-            $this->keyName  . '_children_menu',
             'children_menu_id',
             'menu',
             'menu_id',
             static::RESTRICT,
-            static::RESTRICT
+            static::RESTRICT,
+            $this->keyName . '_children_menu'
         );
     }
 
     public function down()
     {
-        $this->tableDropForeignKey($this->tableName, $this->keyName . '_children_menu');
+        $this->dropForeignKey($this->tableName, $this->keyName . '_children_menu');
 
-        $this->forge->dropColumn($this->tableName, 'children_menu_id');
+        $this->dropColumn($this->tableName, 'children_menu_id');
     }
 
 }

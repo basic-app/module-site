@@ -9,14 +9,14 @@ class Migration_menu_item_add_uid_column extends \BasicApp\Core\Migration
 
     public function up()
     {
-        $this->forge->addColumn($this->tableName, [
+        $this->createColumn($this->tableName, [
             'item_uid' => $this->stringColumn()
         ]);
     }
 
     public function down()
     {
-        $this->forge->dropColumn($this->tableName, 'item_uid');
+        $this->dropColumn($this->tableName, 'item_uid');
     }
 
 }

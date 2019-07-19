@@ -9,12 +9,12 @@ class Migration_menu_item_create_item_enabled_index extends \BasicApp\Core\Migra
 
     public function up()
     {
-        $this->tableAddKey($this->tableName, ['item_enabled'], false, false);
+        $this->createIndex($this->tableName, ['item_enabled']);
     }
 
     public function down()
     {
-        $this->tableDropKey($this->tableName, $this->keyName($this->tableName, ['item_enabled']));
+        $this->dropIndex($this->tableName, ['item_enabled']);
     }
 
 }

@@ -9,7 +9,7 @@ class Migration_menu_item_rename_icon_html_class_column extends \BasicApp\Core\M
 
     public function up()
     {
-        $this->forge->modifyColumn($this->tableName, [
+        $this->modifyColumn($this->tableName, [
             'item_icon_html_class' => $this->stringColumn([
                 'name' => 'item_icon'
             ])
@@ -18,7 +18,7 @@ class Migration_menu_item_rename_icon_html_class_column extends \BasicApp\Core\M
 
     public function down()
     {
-        $this->forge->modifyColumn($this->tableName, [
+        $this->modifyColumn($this->tableName, [
             'item_icon' => $this->stringColumn([
                 'name' => 'item_icon_html_class'
             ])

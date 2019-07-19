@@ -9,14 +9,14 @@ class Migration_menu_item_add_enabled_column extends \BasicApp\Core\Migration
 
     public function up()
     {
-        $this->forge->addColumn($this->tableName, [
-            'item_enabled' => $this->boolColumn()
+        $this->createColumn($this->tableName, [
+            'item_enabled' => $this->booleanColumn()
         ]);
     }
 
     public function down()
     {
-        $this->forge->dropColumn($this->tableName, 'item_enabled');
+        $this->dropColumn($this->tableName, 'item_enabled');
     }
 
 }

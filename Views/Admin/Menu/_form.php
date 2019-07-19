@@ -1,40 +1,29 @@
 <?php
 
-echo admin_theme_widget('formFieldText', [
-    'name'  => 'menu_name',
-    'value' => $model->menu_name,
-    'label' => $model->label('menu_name'),
-    'error' => array_key_exists('menu_name', $errors) ? $errors['menu_name'] : null
-]);
+use BasicApp\Helpers\Url;
 
-echo admin_theme_widget('formFieldText', [
-    'name' => 'menu_uid',
-    'value' => $model->menu_uid,
-    'label' => $model->label('menu_uid'),
-    'error' => array_key_exists('menu_uid', $errors) ? $errors['menu_uid'] : null
-]);
+$adminTheme = service('adminTheme');
 
-echo admin_theme_widget('formFieldText', [
-    'name'  => 'menu_default_item_icon',
-    'value' => $model->menu_default_item_icon,
-    'label' => $model->label('menu_default_item_icon'),
-    'error' => array_key_exists('menu_default_item_icon', $errors) ? $errors['menu_default_item_icon'] : null
-]);
+$form = $adminTheme->createForm(['model' => $model, 'errors' => $errors]);
 
-echo admin_theme_widget('formFieldText', [
-    'name'  => 'menu_default_item_class',
-    'value' => $model->menu_default_item_class,
-    'label' => $model->label('menu_default_item_class'),
-    'error' => array_key_exists('menu_default_item_class', $errors) ? $errors['menu_default_item_class'] : null
-]);
+$url = Url::currentUrl();
 
-echo admin_theme_widget('formFieldText', [
-    'name'  => 'menu_default_item_link_class',
-    'value' => $model->menu_default_item_link_class,
-    'label' => $model->label('menu_default_item_link_class'),
-    'error' => array_key_exists('menu_default_item_link_class', $errors) ? $errors['menu_default_item_link_class'] : null
-]);
+echo $form->formOpen($url);
 
-echo admin_theme_widget('formErrors', ['errors' => $errors]);
+echo $form->input('menu_name');
 
-echo admin_theme_widget('formButton', ['type' => 'submit', 'label' => $model->menu_id ? t('admin', 'Update') : t('admin', 'Insert')]);
+echo $form->input('menu_uid');
+
+echo $form->input('menu_default_item_icon');
+
+echo $form->input('menu_default_item_class');
+
+echo $form->input('menu_default_item_link_class');
+
+echo $form->renderErrors();
+
+$label = $model->getPrimaryKey() ? t('admin', 'Update') : t('admin', 'Insert');
+
+echo $form->submit($label);
+
+echo $form->formClose();

@@ -10,7 +10,7 @@ class Migration_create_blocks_table extends \BasicApp\Core\Migration
 	public function up()
 	{
 		$this->forge->addField([
-			'block_id' => $this->primaryColumn(),
+			'block_id' => $this->primaryKeyColumn(),
 			'block_created_at' => $this->createdColumn(),
 			'block_updated_at' => $this->updatedColumn(),
 			'block_uid' => $this->stringColumn(['unique' => true]),
@@ -19,12 +19,12 @@ class Migration_create_blocks_table extends \BasicApp\Core\Migration
 
 		$this->forge->addKey('block_id', true);
 
-		$this->forge->createTable($this->tableName, false, ['ENGINE' => 'InnoDB']);
+		$this->createTable($this->tableName, false, ['ENGINE' => 'InnoDB']);
 	}
 
 	public function down()
 	{
-		$this->forge->dropTable($this->tableName);
+		$this->dropTable($this->tableName);
 	}
 
 }

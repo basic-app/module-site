@@ -17,30 +17,28 @@ $this->data['actionMenu'][] = [
 	]	
 ];
 
-$rows = [];
+$adminTheme = service('adminTheme');
 
-foreach($elements as $model)
-{
-    $rows[] = app_view('BasicApp\Site\Admin\Block\_row', ['model' => $model]);
-}
+echo $adminTheme->table([
+    'rows' => $elements,
+    'columns' => function($model) {
 
-$event = new StdClass;
+        if (!$model)
+        {
+            $model = BlockModel::createEntity();
+        }
 
-$event->columns = [
-    ['content' => BlockModel::label('block_id'), 'preset' => 'id small'],
-    ['content' => BlockModel::label('block_created_at'), 'preset' => 'medium'],
-    ['content' => BlockModel::label('block_uid')]
-];
+        $updateUrl = Url::returnUrl('admin/block/update', ['id' => $model->getPrimaryKey()]);
+        $deleteUrl = Url::returnUrl('admin/block/delete', ['id' => $model->getPrimaryKey()]);
 
-Events::trigger('admin_block_table_head', $event);
-
-$event->columns[] = ['options' => ['colspan' => 2]];
-
-echo admin_theme_widget('table', [
-    'head' => [
-        'columns' => $event->columns
-    ],
-    'rows' => $rows
+        return [
+            $this->createColumn(['attribute' => 'block_id'])->number()->displaySmall(),
+            $this->createColumn(['attribute' => 'block_created_at'])->displayMedium(),
+            $this->createColumn(['attribute' => 'block_uid']),
+            $this->createUpdateLinkColumn(['url' => $updateUrl]),
+            $this->createDeleteLinkColumn(['url' => $deleteUrl])
+        ];
+    }
 ]);
 
 if ($pager)

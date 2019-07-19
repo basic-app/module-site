@@ -4,16 +4,11 @@ require __DIR__ . '/_common.php';
 
 $this->data['breadcrumbs'][] = ['label' => t('admin', 'Create')];
 
-?>
+$this->data['enableCard'] = true;
 
-<form method="POST" id="admin-block-create-form">
+$this->data['cardTitle'] = $this->data['title'];
 
-	<?= admin_theme_widget('card', [
-		'header' => $this->data['title'],
-		'content' => app_view('BasicApp\Site\Admin\Block\_form', [
-			'model' => $model,
-			'errors' => $errors
-		])
-	]);?>
-
-</form>
+echo app_view('BasicApp\Site\Admin\Block\_form', [
+    'model' => $model,
+    'errors' => $errors
+]);

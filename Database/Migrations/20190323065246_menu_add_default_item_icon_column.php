@@ -9,14 +9,14 @@ class Migration_menu_add_default_item_icon_column extends \BasicApp\Core\Migrati
 
     public function up()
     {
-        $this->forge->addColumn($this->tableName, [
+        $this->createColumn($this->tableName, [
             'menu_default_item_icon' => $this->stringColumn()
         ]);
     }
 
     public function down()
     {
-        $this->forge->dropColumn($this->tableName, 'menu_default_item_icon');
+        $this->dropColumn($this->tableName, 'menu_default_item_icon');
     }
 
 }
