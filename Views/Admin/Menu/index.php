@@ -31,10 +31,22 @@ echo $adminTheme->table([
         }
         
         return [
-            $this->createColumn(['attribute' => 'menu_id'])->number()->displaySmall(),
-            $this->createColumn(['attribute' => 'menu_created_at'])->displayMedium(),
-            $this->createColumn(['attribute' => 'menu_uid']),
-            $this->createColumn(['attribute' => 'menu_name'])->displaySmall(),
+            $this->createColumn([
+                'attribute' => 'menu_id',
+                'header' => $model->label('menu_id')
+            ])->number()->displaySmall(),
+            $this->createColumn([
+                'attribute' => 'menu_created_at',
+                'header' => $model->label('menu_created_at')
+            ])->displayMedium(),
+            $this->createColumn([
+                'attribute' => 'menu_uid',
+                'header' => $model->label('menu_uid')
+            ]),
+            $this->createColumn([
+                'attribute' => 'menu_name',
+                'header' => $model->label('menu_name')
+            ])->displaySmall(),
             $this->createLinkColumn([
                 'label' => t('admin.menu', 'Items'), 
                 'url' => Url::createUrl('admin/menu-item', ['item_menu_id' => $model->getPrimaryKey()])
