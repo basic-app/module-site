@@ -1,6 +1,5 @@
 <?php
 
-use CodeIgniter\Events\Events;
 use BasicApp\Site\Models\PageModel;
 use BasicApp\Helpers\Url;
 
@@ -20,41 +19,17 @@ $this->data['actionMenu'][] = [
 $adminTheme = service('adminTheme');
 
 echo $adminTheme->table([
+    'defaultRow' => PageModel::createEntity(),
     'rows' => $elements,
     'columns' => function($model) {
-
-        if (!$model)
-        {
-            $model = PageModel::createEntity();
-        }
-
         return [
-            $this->createColumn([
-                'attribute' => 'page_id',
-                'header' => $model->label('page_id')
-            ])->displaySmall(),
-            $this->createColumn([
-                'attribute' => 'page_created_at',
-                'header' => $model->label('page_created_at')
-            ])->displayMedium(),
-            $this->createColumn([
-                'attribute' => 'page_url',
-                'header' => $model->label('page_url')
-            ])->displaySmall(),
-            $this->createColumn([
-                'attribute' => 'page_name',
-                'header' => $model->label('page_name')
-            ]),
-            $this->createBooleanColumn([
-                'attribute' => 'page_published',
-                'header' => $model->label('page_published')
-            ])->displayLarge(),
-            $this->createUpdateLinkColumn([
-                'url' => Url::returnUrl('admin/page/update', ['id' => $model->getPrimaryKey()])
-            ]),
-            $this->createDeleteLinkColumn([
-                'url' => Url::returnUrl('admin/page/delete', ['id' => $model->getPrimaryKey()])
-            ])
+            $this->createColumn(['attribute' => 'page_id'])->displaySmall()->number(),
+            $this->createColumn(['attribute' => 'page_created_at'])->displayMedium(),
+            $this->createColumn(['attribute' => 'page_url'])->displaySmall(),
+            $this->createColumn(['attribute' => 'page_name']),
+            $this->createBooleanColumn(['attribute' => 'page_published'])->displayLarge(),
+            $this->createUpdateLinkColumn(['action' => 'admin/page/update']),
+            $this->createDeleteLinkColumn(['action' => 'admin/page/delete'])
         ];
     }
 ]);

@@ -22,45 +22,18 @@ $this->data['actionMenu'][] = [
 $adminTheme = service('adminTheme');
 
 echo $adminTheme->table([
+    'defaultRow' => MenuItemModel::createEntity(),
     'rows' => $elements,
     'columns' => function($model) {
-       
-        if (!$model)
-        {
-            $model = MenuItemModel::createEntity();
-        }
-
         return [
-            $this->createColumn([
-                'attribute' => 'item_id',
-                'header' => $model->label('item_id')
-            ])->number()->displaySmall(),
-            $this->createColumn([
-                'attribute' => 'item_created_at',
-                'header' => $model->label('item_created_at')
-            ])->displayMedium(),
-            $this->createColumn([
-                'attribute' => 'item_url',
-                'header' => $model->label('item_url')
-            ])->displaySmall(),
-            $this->createColumn([
-                'attribute' => 'item_name',
-                'header' => $model->label('item_name')
-            ]),
-            $this->createColumn([
-                'attribute' => 'item_sort',
-                'header' => $model->label('item_sort')
-            ])->number(),
-            $this->createBooleanColumn([
-                'attribute' => 'item_enabled',
-                'header' => $model->label('item_enabled')
-            ]),
-            $this->createUpdateLinkColumn([
-                'url' => Url::returnUrl('admin/menu-item/update', ['id' => $model->getPrimaryKey()])
-            ]),
-            $this->createDeleteLinkColumn([
-                'url' => Url::returnUrl('admin/menu-item/delete', ['id' => $model->getPrimaryKey()])
-            ])
+            $this->createColumn(['attribute' => 'item_id'])->number()->displaySmall(),
+            $this->createColumn(['attribute' => 'item_created_at'])->displayMedium(),
+            $this->createColumn(['attribute' => 'item_url'])->displaySmall(),
+            $this->createColumn(['attribute' => 'item_name']),
+            $this->createColumn(['attribute' => 'item_sort'])->number(),
+            $this->createBooleanColumn(['attribute' => 'item_enabled']),
+            $this->createUpdateLinkColumn(['action' => 'admin/menu-item/update']),
+            $this->createDeleteLinkColumn(['action' => 'admin/menu-item/delete'])
         ];
     }
 ]);

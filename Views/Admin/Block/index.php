@@ -1,6 +1,5 @@
 <?php
 
-use CodeIgniter\Events\Events;
 use BasicApp\Site\Models\BlockModel;
 use BasicApp\Helpers\Url;
 
@@ -20,33 +19,15 @@ $this->data['actionMenu'][] = [
 $adminTheme = service('adminTheme');
 
 echo $adminTheme->table([
+    'defaultRow' => BlockModel::createEntity(),
     'rows' => $elements,
     'columns' => function($model) {
-
-        if (!$model)
-        {
-            $model = BlockModel::createEntity();
-        }
-
         return [
-            $this->createColumn([
-                'attribute' => 'block_id',
-                'header' => $model->label('block_id')
-            ])->number()->displaySmall(),
-            $this->createColumn([
-                'attribute' => 'block_created_at',
-                'header' => $model->label('block_created_at')
-            ])->displayMedium(),
-            $this->createColumn([
-                'attribute' => 'block_uid',
-                'header' => $model->label('block_uid')
-            ]),
-            $this->createUpdateLinkColumn([
-                'url' => Url::returnUrl('admin/block/update', ['id' => $model->getPrimaryKey()])
-            ]),
-            $this->createDeleteLinkColumn([
-                'url' => Url::returnUrl('admin/block/delete', ['id' => $model->getPrimaryKey()])
-            ])
+            $this->createColumn(['attribute' => 'block_id'])->number()->displaySmall(),
+            $this->createColumn(['attribute' => 'block_created_at'])->displayMedium(),
+            $this->createColumn(['attribute' => 'block_uid']),
+            $this->createUpdateLinkColumn(['action' => 'admin/block/update']),
+            $this->createDeleteLinkColumn(['action' => 'admin/block/delete'])
         ];
     }
 ]);
