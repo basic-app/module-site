@@ -6,9 +6,7 @@ $adminTheme = service('adminTheme');
 
 $form = $adminTheme->createForm(['model' => $model, 'errors' => $errors]);
 
-$url = Url::currentUrl();
-
-echo $form->formOpen($url);
+echo $form->formOpen();
 
 echo $form->input('page_name');
 
