@@ -19,7 +19,7 @@ class Migration_create_blocks_table extends \BasicApp\Core\Migration
 
 		$this->forge->addKey('block_id', true);
 
-		$this->createTable($this->tableName, false, ['ENGINE' => 'InnoDB']);
+		$this->createTable($this->tableName);
 	}
 
 	public function down()

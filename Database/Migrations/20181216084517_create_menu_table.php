@@ -19,12 +19,12 @@ class Migration_create_menu_table extends \BasicApp\Core\Migration
 
 		$this->forge->addKey('menu_id', true);
 
-		$this->createTable($this->tableName, false, ['ENGINE' => 'InnoDB']);	
+		$this->createTable($this->tableName);
 	}
 
 	public function down()
 	{
-		$this->dropTable($this->tableName, false);
+		$this->dropTable($this->tableName);
 	}
 
 }

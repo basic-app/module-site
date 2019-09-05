@@ -23,7 +23,7 @@ class Migration_create_menu_item_table extends \BasicApp\Core\Migration
 
 		$this->forge->addForeignKey('item_menu_id', 'menu', 'menu_id', 'RESTRICT', 'RESTRICT');
 
-		$this->createTable($this->tableName, false, ['ENGINE' => 'InnoDB']);
+		$this->createTable($this->tableName, false);
 	}
 
 	public function down()

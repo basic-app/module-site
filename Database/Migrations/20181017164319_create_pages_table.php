@@ -23,7 +23,7 @@ class Migration_create_pages_table extends \BasicApp\Core\Migration
 
 		$this->forge->addKey('page_published');
 
-		$this->createTable($this->tableName, false, ['ENGINE' => 'InnoDB']);
+		$this->createTable($this->tableName);
 	}
 
 	public function down()
