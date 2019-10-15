@@ -1,35 +1,35 @@
 <?php
 
-use BasicApp\Helpers\Url;
-
 $adminTheme = service('adminTheme');
 
-$form = $adminTheme->createForm(['model' => $model, 'errors' => $errors]);
+$form = $adminTheme->createForm($model, $errors);
 
-$url = Url::currentUrl();
+echo $form->open();
 
-echo $form->formOpen($url);
+echo $form->inputGroup($data, 'item_name');
 
-echo $form->input('item_name');
+echo $form->inputGroup($data, 'item_url');
 
-echo $form->input('item_url');
+echo $form->inputGroup($data, 'item_uid');
 
-echo $form->input('item_uid');
+echo $form->inputGroup($data, 'item_sort');
 
-echo $form->input('item_sort');
+echo $form->inputGroup($data, 'item_class');
 
-echo $form->input('item_class');
+echo $form->inputGroup($data, 'item_link_class');
 
-echo $form->input('item_link_class');
+echo $form->inputGroup($data, 'item_icon');
 
-echo $form->input('item_icon');
-
-echo $form->checkbox('item_enabled');
+echo $form->checkboxGroup($data, 'item_enabled');
 
 echo $form->renderErrors();
 
-$label = $model->getPrimaryKey() ? t('admin', 'Update') : t('admin', 'Insert');
+echo $form->beginButtons();
 
-echo $form->submit($label);
+$label = $data->getPrimaryKey() ? t('admin', 'Update') : t('admin', 'Insert');
 
-echo $form->formClose();
+echo $form->submitButton($label);
+
+echo $form->endButtons();
+
+echo $form->close();

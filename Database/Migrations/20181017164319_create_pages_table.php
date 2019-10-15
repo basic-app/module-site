@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * @author Basic App Dev Team <dev@basic-app.com>
+ * @license MIT
+ * @link http://basic-app.com
+ */
 namespace BasicApp\Site\Database\Migrations;
 
 class Migration_create_pages_table extends \BasicApp\Core\Migration
@@ -10,25 +14,25 @@ class Migration_create_pages_table extends \BasicApp\Core\Migration
 	public function up()
 	{
 		$this->forge->addField([
-			'page_id' => $this->primaryKeyColumn(),
-			'page_created_at' => $this->createdColumn(),
-			'page_updated_at' => $this->updatedColumn(),
-			'page_url' => $this->stringColumn(['unique' => true]),
-			'page_name' => $this->stringColumn(),
-			'page_text' => $this->textColumn(),
-			'page_published' => $this->booleanColumn()
+			'page_id' => $this->primaryKey()->toArray(),
+			'page_created_at' => $this->created()->toArray(),
+			'page_updated_at' => $this->updated()->toArray(),
+			'page_url' => $this->string()->unique()->toArray(),
+			'page_name' => $this->string()->toArray(),
+			'page_text' => $this->text()->toArray(),
+			'page_published' => $this->boolean()->toArray()
 		]);
 
 		$this->forge->addKey('page_id', true);
 
 		$this->forge->addKey('page_published');
 
-		$this->createTable($this->tableName);
+		$this->forge->createTable($this->tableName);
 	}
 
 	public function down()
 	{
-		$this->dropTable($this->tableName);
+		$this->forge->dropTable($this->tableName);
 	}
 
 }

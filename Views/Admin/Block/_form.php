@@ -1,23 +1,23 @@
 <?php
 
-use BasicApp\Helpers\Url;
-
 $adminTheme = service('adminTheme');
 
-$form = $adminTheme->createForm(['model' => $model, 'errors' => $errors]);
+$form = $adminTheme->createForm($model, $errors);
 
-$url = Url::currentUrl();
+echo $form->open();
 
-echo $form->formOpen($url);
+echo $form->inputGroup($data, 'block_uid');
 
-echo $form->input('block_uid');
-
-echo $form->codeTextarea('block_content');
+echo $form->codeTextareaGroup($data, 'block_content');
 
 echo $form->renderErrors();
 
-$label = $model->getPrimaryKey() ? t('admin', 'Update') : t('admin', 'Insert');
+echo $form->beginButtons();
 
-echo $form->submit($label);
+$label = $data->getPrimaryKey() ? t('admin', 'Update') : t('admin', 'Insert');
 
-echo $form->formClose();
+echo $form->endButtons();
+
+echo $form->submitButton($label);
+
+echo $form->close();

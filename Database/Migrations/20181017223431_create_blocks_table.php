@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * @author Basic App Dev Team <dev@basic-app.com>
+ * @license MIT
+ * @link http://basic-app.com
+ */
 namespace BasicApp\Site\Database\Migrations;
 
 class Migration_create_blocks_table extends \BasicApp\Core\Migration
@@ -10,21 +14,21 @@ class Migration_create_blocks_table extends \BasicApp\Core\Migration
 	public function up()
 	{
 		$this->forge->addField([
-			'block_id' => $this->primaryKeyColumn(),
-			'block_created_at' => $this->createdColumn(),
-			'block_updated_at' => $this->updatedColumn(),
-			'block_uid' => $this->stringColumn(['unique' => true]),
-			'block_content' => $this->textColumn()
+			'block_id' => $this->primaryKey()->toArray(),
+			'block_created_at' => $this->created()->toArray(),
+			'block_updated_at' => $this->updated()->toArray(),
+			'block_uid' => $this->string()->unique()->toArray(),
+			'block_content' => $this->text()->toArray()
 		]);
 
 		$this->forge->addKey('block_id', true);
 
-		$this->createTable($this->tableName);
+		$this->forge->createTable($this->tableName);
 	}
 
 	public function down()
 	{
-		$this->dropTable($this->tableName);
+		$this->forge->dropTable($this->tableName);
 	}
 
 }

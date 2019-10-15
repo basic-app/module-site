@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * @author Basic App Dev Team <dev@basic-app.com>
+ * @license MIT
+ * @link http://basic-app.com
+ */
 namespace BasicApp\Site\Database\Migrations;
 
 class Migration_create_menu_table extends \BasicApp\Core\Migration
@@ -10,21 +14,24 @@ class Migration_create_menu_table extends \BasicApp\Core\Migration
 	public function up()
 	{
 		$this->forge->addField([
-			'menu_id' => $this->primaryKeyColumn(),
-			'menu_created_at' => $this->createdColumn(),
-			'menu_updated_at' => $this->updatedColumn(),
-			'menu_uid' => $this->stringColumn(['unique' => true]),
-			'menu_name' => $this->stringColumn()
+			'menu_id' => $this->primaryKey()->toArray(),
+			'menu_created_at' => $this->created()->toArray(),
+			'menu_updated_at' => $this->updated()->toArray(),
+			'menu_uid' => $this->string()->unique()->toArray(),
+			'menu_name' => $this->string()->toArray(),
+            'menu_item_icon' => $this->string()->toArray(),
+            'menu_item_class' => $this->string()->toArray(),
+            'menu_item_link_class' => $this->string()->toArray()
 		]);
 
 		$this->forge->addKey('menu_id', true);
 
-		$this->createTable($this->tableName);
+		$this->forge->createTable($this->tableName);
 	}
 
 	public function down()
 	{
-		$this->dropTable($this->tableName);
+		$this->forge->dropTable($this->tableName);
 	}
 
 }

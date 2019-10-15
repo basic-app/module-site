@@ -1,8 +1,8 @@
 <?php
 /**
- * @package Basic App Site
- * @license MIT License
- * @link    http://basic-app.com
+ * @author Basic App Dev Team <dev@basic-app.com>
+ * @license MIT
+ * @link http://basic-app.com
  */
 namespace BasicApp\Site\Models\Admin;
 
@@ -14,17 +14,17 @@ abstract class BaseMenuModel extends \BasicApp\Site\Models\MenuModel
     protected $allowedFields = [
         'menu_name', 
         'menu_uid',
-        'menu_default_item_icon',
-        'menu_default_item_class',
-        'menu_default_item_link_class'
+        'menu_item_icon',
+        'menu_item_class',
+        'menu_item_link_class'
     ];
 
 	protected $validationRules = [
 		'menu_name' => 'trim|required|max_length[255]',
 		'menu_uid' => 'trim|required|max_length[255]|alpha_dash|is_unique[menu.menu_uid,menu_id,{menu_id}]',
-        'menu_default_item_icon' => 'trim|max_length[255]',
-        'menu_default_item_class' => 'trim|max_length[255]',
-        'menu_default_item_link_class' => 'trim|max_length[255]'
+        'menu_item_icon' => 'trim|max_length[255]',
+        'menu_item_class' => 'trim|max_length[255]',
+        'menu_item_link_class' => 'trim|max_length[255]'
 	];
 
 }

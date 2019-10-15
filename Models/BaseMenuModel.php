@@ -1,8 +1,8 @@
 <?php
 /**
- * @package Basic App Site
- * @license MIT License
- * @link    http://basic-app.com
+ * @author Basic App Dev Team <dev@basic-app.com>
+ * @license MIT
+ * @link http://basic-app.com
  */
 namespace BasicApp\Site\Models;
 
@@ -21,9 +21,9 @@ abstract class BaseMenuModel extends \BasicApp\Core\Model
 		'menu_id' => 'ID',
 		'menu_created_at' => 'Created At',
 		'menu_updated_at' => 'Updated At',
-        'menu_default_item_icon' => 'Default Item Icon',
-        'menu_default_item_class' => 'Default Item Container Class',
-        'menu_default_item_link_class' => 'Default Item Link Class'
+        'menu_item_icon' => 'Default Item Icon',
+        'menu_item_class' => 'Default Item Container Class',
+        'menu_item_link_class' => 'Default Item Link Class'
 	];
 
     protected $translations = 'menu';

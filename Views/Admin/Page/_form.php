@@ -1,25 +1,27 @@
 <?php
 
-use BasicApp\Helpers\Url;
-
 $adminTheme = service('adminTheme');
 
-$form = $adminTheme->createForm(['model' => $model, 'errors' => $errors]);
+$form = $adminTheme->createForm($model, $errors);
 
-echo $form->formOpen();
+echo $form->open();
 
-echo $form->input('page_name');
+echo $form->inputGroup($data, 'page_name');
 
-echo $form->input('page_url');
+echo $form->inputGroup($data, 'page_url');
 
-echo $form->editorTextarea('page_text');
+echo $form->editorTextareaGroup($data, 'page_text');
 
-echo $form->checkbox('page_published');
+echo $form->checkboxGroup($data, 'page_published');
 
 echo $form->renderErrors();
 
-$label = $model->getPrimaryKey() ? t('admin', 'Update') : t('admin', 'Insert');
+echo $form->beginButtons();
 
-echo $form->submit($label);
+$label = $data->getPrimaryKey() ? t('admin', 'Update') : t('admin', 'Insert');
 
-echo $form->formClose();
+echo $form->submitButton($label);
+
+echo $form->endButtons();
+
+echo $form->close();

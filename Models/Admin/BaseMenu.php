@@ -1,8 +1,8 @@
 <?php
 /**
- * @package Basic App Site
- * @license MIT License
- * @link    http://basic-app.com
+ * @author Basic App Dev Team <dev@basic-app.com>
+ * @license MIT
+ * @link http://basic-app.com
  */
 namespace BasicApp\Site\Models\Admin;
 

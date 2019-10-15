@@ -1,13 +1,15 @@
 <?php
 
 use BasicApp\Helpers\Url;
+use BasicApp\System\SystemEvents;
+use BasicApp\Admin\AdminEvents;
 
-BasicApp\Core\CoreEvents::onPreSystem(function()
+SystemEvents::onPreSystem(function()
 {
     helper(['block', 'menu']);
 });
 
-BasicApp\Admin\AdminEvents::onAdminMainMenu(function($menu)
+AdminEvents::onAdminMainMenu(function($menu)
 {
     if (BasicApp\Site\Controllers\Admin\Page::checkAccess())
     {

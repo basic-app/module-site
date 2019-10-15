@@ -1,8 +1,8 @@
 <?php
 /**
- * @package Basic App Site
- * @license MIT License
- * @link    http://basic-app.com
+ * @author Basic App Dev Team <dev@basic-app.com>
+ * @license MIT
+ * @link http://basic-app.com
  */
 namespace BasicApp\Site\Models\Admin;
 
@@ -24,40 +24,52 @@ abstract class BaseMenuItemModel extends \BasicApp\Site\Models\MenuItemModel
     ];
 
 	protected $validationRules = [
-		'item_name' => 'trim|max_length[255]|required',
-		'item_url' => 'trim|max_length[255]|required',
-		'item_link_class' => 'trim|max_length[255]',
-        'item_icon' => 'trim|max_length[255]',
-        'item_class' => 'trim|max_length[255]',
-		'item_sort' => 'trim',
-        'item_enabled' => 'trim|required|is_natural',
-        'item_uid' => 'trim|max_length[255]'
+		'item_name' => 'max_length[255]|required',
+		'item_url' => 'max_length[255]|required',
+		'item_link_class' => 'max_length[255]',
+        'item_icon' => 'max_length[255]',
+        'item_class' => 'max_length[255]',
+		'item_sort' => 'is_natural|permit_empty',
+        'item_enabled' => 'required|is_natural',
+        'item_uid' => 'max_length[255]'
 	];
 
-	public function validate($data) : bool
-	{
-		$validationRules = $this->validationRules;
+    public function afterValidate(array $params) : array
+    {
+        $data = $params['data'];
 
-        if (is_array($data))
+        if ($data['item_uid'])
         {
-            if (!empty($data['item_sort']))
+            $class = static::class;
+
+            $query = new $class;
+
+            $query->where([
+                'item_menu_id' => $data['item_menu_id'],
+                'item_uid' => $data['item_uid']
+            ]);
+
+            if ($data['item_id'])
             {
-                $this->validationRules['item_sort'] .= '|is_natural';
-            }        
-        }
-        else
-        {
-            if ($data->item_sort)
+                $query->where('item_id !=', $data['item_id']);
+            }
+
+            if ($query->first())
             {
-                $this->validationRules['item_sort'] .= '|is_natural';
+                $error = strtr(
+                    lang('Validation.is_unique'), 
+                    [
+                        '{field}' => $this->label('item_uid')
+                    ]
+                );
+
+                $this->validation->setError('item_uid', $error);
+
+                $params['result'] = false;
             }
         }
 
-		$return = parent::validate($data);
-
-		$this->validationRules = $validationRules;
-
-		return $return;
-	}
+        return $params;
+    }
 
 }

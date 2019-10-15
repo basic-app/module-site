@@ -1,29 +1,29 @@
 <?php
 
-use BasicApp\Helpers\Url;
-
 $adminTheme = service('adminTheme');
 
-$form = $adminTheme->createForm(['model' => $model, 'errors' => $errors]);
+$form = $adminTheme->createForm($model, $errors);
 
-$url = Url::currentUrl();
+echo $form->open();
 
-echo $form->formOpen($url);
+echo $form->inputGroup($data, 'menu_name');
 
-echo $form->input('menu_name');
+echo $form->inputGroup($data, 'menu_uid');
 
-echo $form->input('menu_uid');
+echo $form->inputGroup($data, 'menu_item_icon');
 
-echo $form->input('menu_default_item_icon');
+echo $form->inputGroup($data, 'menu_item_class');
 
-echo $form->input('menu_default_item_class');
-
-echo $form->input('menu_default_item_link_class');
+echo $form->inputGroup($data, 'menu_item_link_class');
 
 echo $form->renderErrors();
 
-$label = $model->getPrimaryKey() ? t('admin', 'Update') : t('admin', 'Insert');
+echo $form->beginButtons();
 
-echo $form->submit($label);
+$label = $data->getPrimaryKey() ? t('admin', 'Update') : t('admin', 'Insert');
 
-echo $form->formClose();
+echo $form->submitButton($label);
+
+echo $form->endButtons();
+
+echo $form->close();
