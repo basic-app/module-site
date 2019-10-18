@@ -22,8 +22,17 @@ $this->data['actionMenu'][] = [
 $adminTheme = service('adminTheme');
 
 echo $adminTheme->table([
-    'defaultRow' => MenuItemModel::createEntity(),
-    'rows' => $elements,
+    'labels' => [
+        MenuItemModel::label('item_id'),
+        MenuItemModel::label('item_created_at'),
+        MenuItemModel::label('item_url'),
+        MenuItemModel::label('item_name'),
+        MenuItemModel::label('item_sort'),
+        MenuItemModel::label('item_enabled'),
+        '',
+        ''
+    ],
+    'data' => $elements,
     'columns' => function($model) {
         return [
             $this->createColumn(['attribute' => 'item_id'])->number()->displaySmall(),
@@ -40,5 +49,5 @@ echo $adminTheme->table([
 
 if ($pager)
 {
-    echo $pager->links('default', 'bootstrap4');
+    echo $pager->links('default', 'adminTheme');
 }

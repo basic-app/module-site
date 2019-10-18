@@ -19,8 +19,14 @@ $this->data['actionMenu'][] = [
 $adminTheme = service('adminTheme');
 
 echo $adminTheme->table([
-    'defaultRow' => BlockModel::createEntity(),
-    'rows' => $elements,
+    'labels' => [
+        BlockModel::label('block_id'),
+        BlockModel::label('block_created_at'),
+        BlockModel::label('block_uid'),
+        '',
+        ''
+    ],
+    'data' => $elements,
     'columns' => function($model) {
         return [
             $this->createColumn(['attribute' => 'block_id'])->number()->displaySmall(),
@@ -34,5 +40,5 @@ echo $adminTheme->table([
 
 if ($pager)
 {
-    echo $pager->links('default', 'bootstrap4');
+    echo $pager->links('default', 'adminTheme');
 }
