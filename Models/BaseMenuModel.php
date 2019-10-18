@@ -50,9 +50,30 @@ abstract class BaseMenuModel extends \BasicApp\Core\Model
                 'item_enabled' => 1
             ])
             ->orderBy('item_sort ASC')
+            ->join('menu', 'menu_item.item_menu_id=menu.menu_id', 'left')
             ->findAll();
 
         return $items;
+    }
+
+    public function beforeDelete(array $params)
+    {
+        foreach($params['id'] as $id)
+        {
+            $items = MenuItemModel::factory()
+                ->select('item_id')
+                ->where('item_menu_id', $id)
+                ->asArray()
+                ->findAll();
+
+            foreach($items as $item)
+            {
+                if (!MenuItemModel::factory()->delete($item['item_id']))
+                {
+                    throw new Exception('Delete error.');
+                }
+            }
+        }
     }
 
 }

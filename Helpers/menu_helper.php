@@ -22,14 +22,31 @@ if (!function_exists('menu_items'))
                 'url' => $item->item_url
             ];
 
+            if ($item->item_icon)
+            {
+                $row['icon'] = $item->item_icon;
+            }
+            elseif($item->menu_item_icon)
+            {
+                $row['icon'] = $item->menu_item_icon;
+            }
+
             if ($item->item_class)
             {
                 $row['options']['class'] = $item->item_class;
+            }
+            elseif($item->menu_item_class)
+            {
+                $row['options']['class'] = $item->menu_item_class;
             }
 
             if ($item->item_link_class)
             {
                 $row['linkOptions']['class'] = $item->item_link_class;
+            }
+            elseif($item->menu_item_link_class)
+            {
+                $row['linkOptions']['class'] = $item->menu_item_link_class;
             }
 
             $return[] = $row;
