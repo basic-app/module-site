@@ -23,16 +23,16 @@ $adminTheme = service('adminTheme');
 
 echo $adminTheme->table([
     'labels' => [
-        MenuItemModel::label('item_id'),
-        MenuItemModel::label('item_created_at'),
-        MenuItemModel::label('item_url'),
-        MenuItemModel::label('item_name'),
-        MenuItemModel::label('item_sort'),
-        MenuItemModel::label('item_enabled'),
+        MenuItemModel::fieldLabel('item_id'),
+        MenuItemModel::fieldLabel('item_created_at'),
+        MenuItemModel::fieldLabel('item_url'),
+        MenuItemModel::fieldLabel('item_name'),
+        MenuItemModel::fieldLabel('item_sort'),
+        MenuItemModel::fieldLabel('item_enabled'),
         '',
         ''
     ],
-    'data' => $elements,
+    'elements' => $elements,
     'columns' => function($model) {
         return [
             $this->createColumn(['attribute' => 'item_id'])->number()->displaySmall(),

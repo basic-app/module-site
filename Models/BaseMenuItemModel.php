@@ -15,7 +15,7 @@ abstract class BaseMenuItemModel extends \BasicApp\Core\Model
 
     protected $returnType = MenuItem::class;
 
-	protected $labels = [
+	protected $fieldLabels = [
 		'item_id' => 'ID',
         'item_name' => 'Name',
 		'item_url' => 'Url',
@@ -29,7 +29,7 @@ abstract class BaseMenuItemModel extends \BasicApp\Core\Model
         'item_enabled' => 'Enabled'
 	];
 
-    protected $translations = 'menu-item';
+    protected $langCategory = 'menu-item';
 
 	public function save($values) : bool
 	{

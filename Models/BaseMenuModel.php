@@ -15,7 +15,7 @@ abstract class BaseMenuModel extends \BasicApp\Core\Model
 
     protected $returnType = Menu::class;
 
-	protected $labels = [
+	protected $fieldLabels = [
 		'menu_name' => 'Name',
 		'menu_uid' => 'UID',
 		'menu_id' => 'ID',
@@ -26,7 +26,7 @@ abstract class BaseMenuModel extends \BasicApp\Core\Model
         'menu_item_link_class' => 'Default Item Link Class'
 	];
 
-    protected $translations = 'menu';
+    protected $langCategory = 'menu';
 
     public static function getMenu(string $uid, bool $create = false, array $params = [])
     {

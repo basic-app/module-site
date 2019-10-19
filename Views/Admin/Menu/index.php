@@ -22,15 +22,15 @@ $adminTheme = service('adminTheme');
 
 echo $adminTheme->table([
     'labels' => [
-        MenuModel::label('menu_id'),
-        MenuModel::label('menu_created_at'),
-        MenuModel::label('menu_uid'),
-        MenuModel::label('menu_name'),
+        MenuModel::fieldLabel('menu_id'),
+        MenuModel::fieldLabel('menu_created_at'),
+        MenuModel::fieldLabel('menu_uid'),
+        MenuModel::fieldLabel('menu_name'),
         '',
         '',
         ''
     ],
-    'data' => $elements,
+    'elements' => $elements,
     'columns' => function($model) {
         return [
             $this->createColumn(['attribute' => 'menu_id'])->number()->displaySmall(),

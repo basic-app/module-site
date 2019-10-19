@@ -20,15 +20,15 @@ $adminTheme = service('adminTheme');
 
 echo $adminTheme->table([
     'labels' => [
-        PageModel::label('page_id'),
-        PageModel::label('page_created_at'),
-        PageModel::label('page_url'),
-        PageModel::label('page_name'),
-        PageModel::label('page_published'),
+        PageModel::fieldLabel('page_id'),
+        PageModel::fieldLabel('page_created_at'),
+        PageModel::fieldLabel('page_url'),
+        PageModel::fieldLabel('page_name'),
+        PageModel::fieldLabel('page_published'),
         '',
         ''
     ],
-    'data' => $elements,
+    'elements' => $elements,
     'columns' => function($model) {
         return [
             $this->createColumn(['attribute' => 'page_id'])->displaySmall()->number(),

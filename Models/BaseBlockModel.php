@@ -13,7 +13,7 @@ abstract class BaseBlockModel extends \BasicApp\Core\Model
 
 	protected $primaryKey = 'block_id';
 
-	protected $labels = [
+	protected $fieldLabels = [
 		'block_id' => 'ID',
 		'block_uid' => 'UID',
 		'block_content' => 'Content',
@@ -21,7 +21,7 @@ abstract class BaseBlockModel extends \BasicApp\Core\Model
 		'block_updated_at' => 'Updated'
 	];
 
-    protected $translations = 'blocks';
+    protected $langCategory = 'blocks';
 
 	protected $returnType = Block::class;
 

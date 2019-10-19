@@ -20,13 +20,13 @@ $adminTheme = service('adminTheme');
 
 echo $adminTheme->table([
     'labels' => [
-        BlockModel::label('block_id'),
-        BlockModel::label('block_created_at'),
-        BlockModel::label('block_uid'),
+        BlockModel::fieldLabel('block_id'),
+        BlockModel::fieldLabel('block_created_at'),
+        BlockModel::fieldLabel('block_uid'),
         '',
         ''
     ],
-    'data' => $elements,
+    'elements' => $elements,
     'columns' => function($model) {
         return [
             $this->createColumn(['attribute' => 'block_id'])->number()->displaySmall(),
