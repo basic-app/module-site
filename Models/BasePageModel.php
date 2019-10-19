@@ -8,6 +8,7 @@ namespace BasicApp\Site\Models;
 
 use Config\Database;
 use Config\Services;
+use BasicApp\Site\SiteEvents;
 
 abstract class BasePageModel extends \BasicApp\Core\Model
 {
@@ -49,6 +50,11 @@ abstract class BasePageModel extends \BasicApp\Core\Model
         }
 
         $view->setVar('title', $page->page_name);
+    }
+
+    public static function pageText($page)
+    {
+        return SiteEvents::pageText($page->page_text);
     }
 
 }

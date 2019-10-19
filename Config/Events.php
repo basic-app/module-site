@@ -9,7 +9,7 @@ SystemEvents::onPreSystem(function()
     helper(['block', 'menu']);
 });
 
-AdminEvents::onAdminMainMenu(function($menu)
+AdminEvents::onMainMenu(function($menu)
 {
     if (BasicApp\Site\Controllers\Admin\Page::checkAccess())
     {

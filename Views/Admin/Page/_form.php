@@ -10,7 +10,7 @@ echo $form->inputGroup($data, 'page_name');
 
 echo $form->inputGroup($data, 'page_url');
 
-echo $form->editorTextareaGroup($data, 'page_text');
+echo $form->editorTextareaGroup($data, 'page_text', ['rows' => 30]);
 
 echo $form->checkboxGroup($data, 'page_published');
 
