@@ -17,7 +17,7 @@ abstract class BaseBlockModel extends \BasicApp\Site\Models\BlockModel
 	];
 
 	protected $validationRules = [
-		'block_uid' => 'trim|required|max_length[255]|required',
+		'block_uid' => 'trim|required|max_length[255]|is_unique[blocks.block_uid,block_id,{block_id}]required',
 		'block_content' => 'trim|max_length[65535]'
 	];
 
