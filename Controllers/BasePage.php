@@ -9,7 +9,7 @@ namespace BasicApp\Site\Controllers;
 use BasicApp\Site\Models\PageModel;
 use CodeIgniter\Exceptions\PageNotFoundException;
 
-abstract class BasePage extends \BasicApp\Core\PublicController
+abstract class BasePage extends \BasicApp\System\Controller
 {
 
     protected $viewPath = 'BasicApp\Site\Page';
