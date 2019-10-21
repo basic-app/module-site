@@ -12,6 +12,8 @@ use CodeIgniter\Exceptions\PageNotFoundException;
 abstract class BasePage extends \BasicApp\Core\PublicController
 {
 
+    protected $viewPath = 'BasicApp\Site\Page';
+
 	public function view($url = 'index')
 	{
 		$pageModel = new PageModel;
@@ -26,25 +28,10 @@ abstract class BasePage extends \BasicApp\Core\PublicController
 			throw new PageNotFoundException();
 		}
 
-        $template = 'page';
-
-        if ($page->page_url == 'index')
-        {
-            $template = 'index';
-        }
-        else
-        {
-            $filename = APPPATH . 'Views' . DIRECTORY_SEPARATOR . 'page' . DIRECTORY_SEPARATOR . $page->page_url . '.php';
-
-            if (is_file($filename))
-            {
-                $template = 'page/' . $page->page_url;
-            }
-        }
-
-		return $this->render($template, [
-			'page' => $page
-		]);
+        return $this->render('_view', [
+            'template' => 'BasicApp\Site\Page' . "\\" . $page->page_url,
+            'page' => $page
+        ]);
 	}
 
 }
