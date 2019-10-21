@@ -31,7 +31,7 @@ echo $adminTheme->table([
         return [
             $this->createColumn(['attribute' => 'block_id'])->number()->displaySmall(),
             $this->createColumn(['attribute' => 'block_created_at'])->displayMedium(),
-            $this->createColumn(['attribute' => 'block_uid']),
+            $this->createColumn(['attribute' => 'block_uid'])->success(),
             $this->createUpdateLinkColumn(['action' => 'admin/block/update']),
             $this->createDeleteLinkColumn(['action' => 'admin/block/delete'])
         ];

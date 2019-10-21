@@ -37,7 +37,7 @@ echo $adminTheme->table([
         return [
             $this->createColumn(['attribute' => 'item_id'])->number()->displaySmall(),
             $this->createColumn(['attribute' => 'item_created_at'])->displayMedium(),
-            $this->createColumn(['attribute' => 'item_url'])->displaySmall(),
+            $this->createColumn(['attribute' => 'item_url'])->success()->displaySmall(),
             $this->createColumn(['attribute' => 'item_name']),
             $this->createColumn(['attribute' => 'item_sort'])->number(),
             $this->createBooleanColumn(['attribute' => 'item_enabled']),

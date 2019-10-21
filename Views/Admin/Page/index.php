@@ -33,7 +33,7 @@ echo $adminTheme->table([
         return [
             $this->createColumn(['attribute' => 'page_id'])->displaySmall()->number(),
             $this->createColumn(['attribute' => 'page_created_at'])->displayMedium(),
-            $this->createColumn(['attribute' => 'page_url'])->displaySmall(),
+            $this->createColumn(['attribute' => 'page_url'])->success()->displaySmall(),
             $this->createColumn(['attribute' => 'page_name']),
             $this->createBooleanColumn(['attribute' => 'page_published'])->displayLarge(),
             $this->createUpdateLinkColumn(['action' => 'admin/page/update']),

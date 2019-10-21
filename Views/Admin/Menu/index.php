@@ -35,7 +35,7 @@ echo $adminTheme->table([
         return [
             $this->createColumn(['attribute' => 'menu_id'])->number()->displaySmall(),
             $this->createColumn(['attribute' => 'menu_created_at'])->displayMedium(),
-            $this->createColumn(['attribute' => 'menu_uid']),
+            $this->createColumn(['attribute' => 'menu_uid'])->success(),
             $this->createColumn(['attribute' => 'menu_name'])->displaySmall(),
             $this->createLinkColumn([
                 'label' => t('admin.menu', 'Items'), 
