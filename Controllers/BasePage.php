@@ -28,8 +28,16 @@ abstract class BasePage extends \BasicApp\System\Controller
 			throw new PageNotFoundException();
 		}
 
-        return $this->render('_view', [
-            'template' => 'BasicApp\Site\Page' . "\\" . $page->page_url,
+        if (is_file(APPPATH . 'Views/BasicApp/Site/Page/' . $page->page_url . '.php'))
+        {
+            $template = $page->page_url;
+        }
+        else
+        {
+            $template = '_view';
+        }
+
+        return $this->render($template, [
             'page' => $page
         ]);
 	}
