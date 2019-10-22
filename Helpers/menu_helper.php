@@ -22,6 +22,23 @@ if (!function_exists('menu_items'))
                 'url' => $item->item_url
             ];
 
+            $current_uri = uri_string();
+
+            if ($current_uri == '/')
+            {
+                if ($item->item_url == '/')
+                {
+                    $row['active'] = true;
+                }
+            }
+            else
+            {
+                if (trim($item->item_url, '/') == $current_uri)
+                {
+                    $row['active'] = true;
+                }
+            }
+
             if ($item->item_icon)
             {
                 $row['icon'] = $item->item_icon;
@@ -42,11 +59,11 @@ if (!function_exists('menu_items'))
 
             if ($item->item_link_class)
             {
-                $row['linkOptions']['class'] = $item->item_link_class;
+                $row['linkOptions']['options']['class'] = $item->item_link_class;
             }
             elseif($item->menu_item_link_class)
             {
-                $row['linkOptions']['class'] = $item->menu_item_link_class;
+                $row['linkOptions']['options']['class'] = $item->menu_item_link_class;
             }
 
             $return[] = $row;
