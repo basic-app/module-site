@@ -38,3 +38,10 @@ AdminEvents::onMainMenu(function($event)
         ];
     }
 });
+
+SystemEvents::onSeed(function() {
+
+    $seeder = Config\Database::seeder();
+
+    $seeder->call(\BasicApp\Site\Database\Seeds\SiteSeeder::class);
+});
