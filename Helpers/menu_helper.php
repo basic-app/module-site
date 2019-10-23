@@ -50,20 +50,20 @@ if (!function_exists('menu_items'))
 
             if ($item->item_class)
             {
-                $row['options']['class'] = $item->item_class;
+                $row['attributes']['class'] = $item->item_class;
             }
             elseif($item->menu_item_class)
             {
-                $row['options']['class'] = $item->menu_item_class;
+                $row['attributes']['class'] = $item->menu_item_class;
             }
 
             if ($item->item_link_class)
             {
-                $row['linkOptions']['options']['class'] = $item->item_link_class;
+                $row['linkOptions']['attributes']['class'] = $item->item_link_class;
             }
             elseif($item->menu_item_link_class)
             {
-                $row['linkOptions']['options']['class'] = $item->menu_item_link_class;
+                $row['linkOptions']['attributes']['class'] = $item->menu_item_link_class;
             }
 
             $return[] = $row;

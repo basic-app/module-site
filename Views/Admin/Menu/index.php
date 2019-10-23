@@ -13,7 +13,7 @@ $this->data['actionMenu'][] = [
 	]),
 	'label' => t('admin', 'Create'), 
 	'icon' => 'fa fa-plus',
-	'linkOptions' => [
+	'linkAttributes' => [
 		'class' => 'btn btn-success'
 	]	
 ];
