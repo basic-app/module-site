@@ -33,10 +33,10 @@ echo $adminTheme->table([
     'elements' => $elements,
     'columns' => function($model) {
         return [
-            $this->createColumn(['attribute' => 'menu_id'])->number()->displaySmall(),
-            $this->createColumn(['attribute' => 'menu_created_at'])->displayMedium(),
-            $this->createColumn(['attribute' => 'menu_uid'])->success(),
-            $this->createColumn(['attribute' => 'menu_name'])->displaySmall(),
+            $this->createColumn(['field' => 'menu_id'])->number()->displaySmall(),
+            $this->createColumn(['field' => 'menu_created_at'])->displayMedium(),
+            $this->createColumn(['field' => 'menu_uid'])->success(),
+            $this->createColumn(['field' => 'menu_name'])->displaySmall(),
             $this->createLinkColumn([
                 'label' => t('admin.menu', 'Items'), 
                 'url' => Url::createUrl('admin/menu-item', ['item_menu_id' => $model->getPrimaryKey()])

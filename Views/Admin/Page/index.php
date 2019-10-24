@@ -31,11 +31,11 @@ echo $adminTheme->table([
     'elements' => $elements,
     'columns' => function($model) {
         return [
-            $this->createColumn(['attribute' => 'page_id'])->displaySmall()->number(),
-            $this->createColumn(['attribute' => 'page_created_at'])->displayMedium(),
-            $this->createColumn(['attribute' => 'page_url'])->success()->displaySmall(),
-            $this->createColumn(['attribute' => 'page_name']),
-            $this->createBooleanColumn(['attribute' => 'page_published'])->displayLarge(),
+            $this->createColumn(['field' => 'page_id'])->displaySmall()->number(),
+            $this->createColumn(['field' => 'page_created_at'])->displayMedium(),
+            $this->createColumn(['field' => 'page_url'])->success()->displaySmall(),
+            $this->createColumn(['field' => 'page_name']),
+            $this->createBooleanColumn(['field' => 'page_published'])->displayLarge(),
             $this->createUpdateLinkColumn(['action' => 'admin/page/update']),
             $this->createDeleteLinkColumn(['action' => 'admin/page/delete'])
         ];

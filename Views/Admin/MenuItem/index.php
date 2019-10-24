@@ -35,12 +35,12 @@ echo $adminTheme->table([
     'elements' => $elements,
     'columns' => function($model) {
         return [
-            $this->createColumn(['attribute' => 'item_id'])->number()->displaySmall(),
-            $this->createColumn(['attribute' => 'item_created_at'])->displayMedium(),
-            $this->createColumn(['attribute' => 'item_url'])->success()->displaySmall(),
-            $this->createColumn(['attribute' => 'item_name']),
-            $this->createColumn(['attribute' => 'item_sort'])->number(),
-            $this->createBooleanColumn(['attribute' => 'item_enabled']),
+            $this->createColumn(['field' => 'item_id'])->number()->displaySmall(),
+            $this->createColumn(['field' => 'item_created_at'])->displayMedium(),
+            $this->createColumn(['field' => 'item_url'])->success()->displaySmall(),
+            $this->createColumn(['field' => 'item_name']),
+            $this->createColumn(['field' => 'item_sort'])->number(),
+            $this->createBooleanColumn(['field' => 'item_enabled']),
             $this->createUpdateLinkColumn(['action' => 'admin/menu-item/update']),
             $this->createDeleteLinkColumn(['action' => 'admin/menu-item/delete'])
         ];

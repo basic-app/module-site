@@ -29,9 +29,9 @@ echo $adminTheme->table([
     'elements' => $elements,
     'columns' => function($model) {
         return [
-            $this->createColumn(['attribute' => 'block_id'])->number()->displaySmall(),
-            $this->createColumn(['attribute' => 'block_created_at'])->displayMedium(),
-            $this->createColumn(['attribute' => 'block_uid'])->success(),
+            $this->createColumn(['field' => 'block_id'])->number()->displaySmall(),
+            $this->createColumn(['field' => 'block_created_at'])->displayMedium(),
+            $this->createColumn(['field' => 'block_uid'])->success(),
             $this->createUpdateLinkColumn(['action' => 'admin/block/update']),
             $this->createDeleteLinkColumn(['action' => 'admin/block/delete'])
         ];
