@@ -50,6 +50,8 @@ abstract class BasePageModel extends \BasicApp\Core\Model
         }
 
         $view->setVar('title', $page->page_name);
+
+        $view->setVar('description', false);
     }
 
     public static function pageText($page)
