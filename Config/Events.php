@@ -60,14 +60,20 @@ SystemEvents::onSeed(function($event)
 
         CliHelper::message('blocks table truncated');
 
-        if (!$db->simpleQuery('TRUNCATE TABLE menu_items'))
+        if (!$db->simpleQuery('TRUNCATE TABLE menu_item'))
         {
             throw new Exception($db->error());
         }
 
-        CliHelper::message('menu_items table truncated');
+        CliHelper::message('menu_item table truncated');
 
-        if (!$db->simpleQuery('TRUNCATE TABLE menu'))
+        $db->simpleQuery('SET FOREIGN_KEY_CHECKS = 0');
+
+        $result = $db->simpleQuery('TRUNCATE TABLE `menu`');
+
+        $db->simpleQuery('SET FOREIGN_KEY_CHECKS = 1');
+
+        if (!$result)
         {
             throw new Exception($db->error());
         }
