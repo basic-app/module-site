@@ -1,6 +1,7 @@
 <?php
 
 use BasicApp\Helpers\Url;
+use BasicApp\Helpers\CliHelper;
 use BasicApp\System\SystemEvents;
 use BasicApp\Admin\AdminEvents;
 
@@ -39,9 +40,42 @@ AdminEvents::onMainMenu(function($event)
     }
 });
 
-SystemEvents::onSeed(function() {
+SystemEvents::onSeed(function($event)
+{
+    if ($event->reset)
+    {
+        $db = db_connect();
+
+        if (!$db->simpleQuery('TRUNCATE TABLE pages'))
+        {
+            throw new Exception($db->error());
+        }
+
+        CliHelper::message('pages table truncated');
+
+        if (!$db->simpleQuery('TRUNCATE TABLE blocks'))
+        {
+            throw new Exception($db->error());
+        }
+
+        CliHelper::message('blocks table truncated');
+
+        if (!$db->simpleQuery('TRUNCATE TABLE menu_items'))
+        {
+            throw new Exception($db->error());
+        }
+
+        CliHelper::message('menu_items table truncated');
+
+        if (!$db->simpleQuery('TRUNCATE TABLE menu'))
+        {
+            throw new Exception($db->error());
+        }
+
+        CliHelper::message('menu table truncated');
+    }
 
     $seeder = Config\Database::seeder();
 
-    $seeder->call(\BasicApp\Site\Database\Seeds\SiteSeeder::class);
+    $seeder->call(BasicApp\Site\Database\Seeds\SiteSeeder::class);
 });
