@@ -20,11 +20,11 @@ abstract class BaseMenuModel extends \BasicApp\Site\Models\MenuModel
     ];
 
 	protected $validationRules = [
-		'menu_name' => 'required|max_length[255]',
-		'menu_uid' => 'required|max_length[255]|alpha_dash|is_unique[menu.menu_uid,menu_id,{menu_id}]',
-        'menu_item_icon' => 'max_length[255]',
-        'menu_item_class' => 'max_length[255]',
-        'menu_item_link_class' => 'max_length[255]'
+		'menu_name' => 'not_special_chars|max_length[255]|required',
+		'menu_uid' => 'alpha_dash|max_length[255]|is_unique[menu.menu_uid,menu_id,{menu_id}]|required',
+        'menu_item_icon' => 'not_special_chars|max_length[255]',
+        'menu_item_class' => 'not_special_chars|max_length[255]',
+        'menu_item_link_class' => 'not_special_chars|max_length[255]'
 	];
 
 }
