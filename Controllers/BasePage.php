@@ -18,15 +18,20 @@ abstract class BasePage extends \BasicApp\System\Controller
 	{
 		$pageModel = new PageModel;
 
-		$page = $pageModel
-				->where('page_url', $url)
-				->where('page_published', 1)
-				->first();
+		$page = $pageModel->where('page_url', $url)->first();
 
 		if (!$page)
 		{
-			throw new PageNotFoundException();
+			throw new PageNotFoundException;
 		}
+
+        if (!$page->page_published)
+        {
+            if ($url != 'index')
+            {
+                throw new PageNotFoundException;
+            }
+        }
 
         if (is_file(APPPATH . 'Views/BasicApp/Site/Page/' . $page->page_url . '.php'))
         {

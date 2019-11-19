@@ -51,21 +51,21 @@ SystemEvents::onSeed(function($event)
             throw new Exception($db->error());
         }
 
-        CliHelper::message('pages table truncated');
+        CliHelper::message('Truncated: pages');
 
         if (!$db->simpleQuery('TRUNCATE TABLE blocks'))
         {
             throw new Exception($db->error());
         }
 
-        CliHelper::message('blocks table truncated');
+        CliHelper::message('Truncated: blocks');
 
         if (!$db->simpleQuery('TRUNCATE TABLE menu_item'))
         {
             throw new Exception($db->error());
         }
 
-        CliHelper::message('menu_item table truncated');
+        CliHelper::message('Truncated: menu_item');
 
         $db->simpleQuery('SET FOREIGN_KEY_CHECKS = 0');
 
@@ -78,7 +78,7 @@ SystemEvents::onSeed(function($event)
             throw new Exception($db->error());
         }
 
-        CliHelper::message('menu table truncated');
+        CliHelper::message('Truncated: menu');
     }
 
     $seeder = Config\Database::seeder();
