@@ -19,10 +19,10 @@ abstract class BasePageModel extends \BasicApp\Site\Models\PageModel
 	];
 
 	protected $validationRules = [
-		'page_name' => 'trim|max_length[255]|required',
-		'page_url' => 'trim|max_length[255]|is_unique[pages.page_url,page_id,{page_id}]',
-		'page_text' => 'trim|max_length[65535]',
-		'page_published' => 'in_list[0,1]'
+		'page_name' => 'not_special_chars|max_length[255]|required',
+		'page_url' => 'not_special_chars|max_length[255]|is_unique[pages.page_url,page_id,{page_id}]',
+		'page_text' => 'html_purifier|max_length[65535]',
+		'page_published' => 'not_special_chars|in_list[0,1]'
 	];
 
 }
