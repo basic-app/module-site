@@ -23,4 +23,11 @@ abstract class BasePage extends \BasicApp\Core\Entity
         PageModel::setPageMetaTags($this, $view);
     }
 
+    public function setParams(array $params)
+    {
+        $this->page_name = strtr($this->page_name, $params);
+
+        $this->page_text = strtr($this->page_text, $params);
+    }
+
 }
