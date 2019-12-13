@@ -22,7 +22,18 @@ abstract class BasePage extends \BasicApp\System\Controller
 
 		if (!$page)
 		{
-			throw new PageNotFoundException;
+            if ($url == 'index')
+            {
+                $page = PageModel::getPage('index', true, [
+                    'page_name' => 'Index', 
+                    'page_text' => '<p>Index page.</p>',
+                    'page_published' => 1
+                ]);
+            }
+            else
+            {
+                throw new PageNotFoundException;
+            }
 		}
 
         if (!$page->page_published)
