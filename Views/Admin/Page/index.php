@@ -20,11 +20,11 @@ $adminTheme = service('adminTheme');
 
 echo $adminTheme->table([
     'labels' => [
-        PageModel::fieldLabel('page_id'),
-        PageModel::fieldLabel('page_created_at'),
-        PageModel::fieldLabel('page_url'),
-        PageModel::fieldLabel('page_name'),
-        PageModel::fieldLabel('page_published'),
+        $model->getFieldLabel('page_id'),
+        $model->getFieldLabel('page_created_at'),
+        $model->getFieldLabel('page_url'),
+        $model->getFieldLabel('page_name'),
+        $model->getFieldLabel('page_published'),
         '',
         ''
     ],
