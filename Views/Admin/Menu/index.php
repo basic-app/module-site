@@ -22,10 +22,10 @@ $adminTheme = service('adminTheme');
 
 echo $adminTheme->table([
     'labels' => [
-        MenuModel::fieldLabel('menu_id'),
-        MenuModel::fieldLabel('menu_created_at'),
-        MenuModel::fieldLabel('menu_uid'),
-        MenuModel::fieldLabel('menu_name'),
+        $model->getFieldLabel('menu_id'),
+        $model->getFieldLabel('menu_created_at'),
+        $model->getFieldLabel('menu_uid'),
+        $model->getFieldLabel('menu_name'),
         '',
         '',
         ''

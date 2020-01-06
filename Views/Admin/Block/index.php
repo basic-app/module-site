@@ -20,9 +20,9 @@ $adminTheme = service('adminTheme');
 
 echo $adminTheme->table([
     'labels' => [
-        BlockModel::fieldLabel('block_id'),
-        BlockModel::fieldLabel('block_created_at'),
-        BlockModel::fieldLabel('block_uid'),
+        $model->getFieldLabel('block_id'),
+        $model->getFieldLabel('block_created_at'),
+        $model->getFieldLabel('block_uid'),
         '',
         ''
     ],

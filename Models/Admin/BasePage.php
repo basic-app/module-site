@@ -6,8 +6,6 @@
  */
 namespace BasicApp\Site\Models\Admin;
 
-use BasicApp\HtmlPurifier\HtmlPurifierEntityBehavior;
-
 abstract class BasePage extends \BasicApp\Site\Models\Page
 {
 
@@ -17,17 +15,5 @@ abstract class BasePage extends \BasicApp\Site\Models\Page
     {
         return $this->page_published ? t('admin', 'Published') : t('admin', 'Not Published');
     }
-
-    public function behaviors()
-    {
-        return array_merge(parent::behaviors(), [
-            'htmlPurifier' => [
-                'class' => HtmlPurifierEntityBehavior::class,
-                'attributes' => [
-                    'page_text'
-                ]
-            ]
-        ]);
-    }
-
+    
 }

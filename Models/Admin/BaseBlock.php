@@ -9,6 +9,6 @@ namespace BasicApp\Site\Models\Admin;
 abstract class BaseBlock extends \BasicApp\Site\Models\Block
 {
 
-    protected $modelClass = BlockModel::class;	
+    protected $modelClass = BlockModel::class;
 
 }

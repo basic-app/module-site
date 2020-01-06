@@ -7,6 +7,5 @@
         }
     },
     "require": {
-        "basic-app/html-purifier": "*"
     }
 }

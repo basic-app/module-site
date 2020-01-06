@@ -23,12 +23,12 @@ $adminTheme = service('adminTheme');
 
 echo $adminTheme->table([
     'labels' => [
-        MenuItemModel::fieldLabel('item_id'),
-        MenuItemModel::fieldLabel('item_created_at'),
-        MenuItemModel::fieldLabel('item_url'),
-        MenuItemModel::fieldLabel('item_name'),
-        MenuItemModel::fieldLabel('item_sort'),
-        MenuItemModel::fieldLabel('item_enabled'),
+        $model->getFieldLabel('item_id'),
+        $model->getFieldLabel('item_created_at'),
+        $model->getFieldLabel('item_url'),
+        $model->getFieldLabel('item_name'),
+        $model->getFieldLabel('item_sort'),
+        $model->getFieldLabel('item_enabled'),
         '',
         ''
     ],
