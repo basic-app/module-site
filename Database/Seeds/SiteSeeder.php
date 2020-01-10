@@ -2,9 +2,9 @@
 
 namespace BasicApp\Site\Database\Seeds;
 
-use BasicApp\Site\Models\MenuModel;
-use BasicApp\Site\Models\MenuItemModel;
-use BasicApp\Site\Models\PageModel;
+use BasicApp\Menu\Models\MenuModel;
+use BasicApp\Menu\Models\MenuItemModel;
+use BasicApp\Page\Models\PageModel;
 use BasicApp\Site\SiteEvents;
 
 class SiteSeeder extends \CodeIgniter\Database\Seeder

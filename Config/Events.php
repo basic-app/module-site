@@ -10,6 +10,8 @@ SystemEvents::onPreSystem(function()
     helper(['block', 'menu']);
 });
 
+/*
+
 AdminEvents::onMainMenu(function($event)
 {
     if (BasicApp\Site\Controllers\Admin\Page::checkAccess())
@@ -85,3 +87,5 @@ SystemEvents::onSeed(function($event)
 
     $seeder->call(BasicApp\Site\Database\Seeds\SiteSeeder::class);
 });
+
+*/
